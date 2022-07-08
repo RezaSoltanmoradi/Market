@@ -1,0 +1,63 @@
+$color-danger: #d7263d;
+$color-orange: #f46036;
+$color-dark: #2e294e;
+$color-success: #1b998b;
+$color-warning: #c5d86d;
+$color-ligth: #ccc;
+$color-white: white;
+
+$font-xsmall: 15px;
+$font-small: 18px;
+$font-med: 22px;
+$font-large: 25px;
+$font-xlarge: 30px;
+
+$radius-small: 5px;
+$radius-med: 10px;
+$redius-large: 15px;
+
+@mixin flexible {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin columnFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@mixin felxBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin center {
+    text-align: center;
+    margin: auto;
+}
+@mixin moveTop {
+    transition: all 0.3s linear;
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+@mixin animate{
+    animation: rotation .5s  linear;
+    @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {    
+          transform: rotate(380deg);
+        }
+      }
+}
+@function increase-color($color, $amount: 100%) {
+    $inverse: change-color($color, $hue: hue($color) + 30);
+    @return mix($inverse, $color, $amount);
+}
+@function decrease-color($color, $amount: 100%) {
+    $inverse: change-color($color, $hue: hue($color) - 30);
+    @return mix($inverse, $color, $amount);
+}

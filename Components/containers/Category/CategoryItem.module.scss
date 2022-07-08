@@ -1,0 +1,36 @@
+@import '../../../styles/mainStyle.scss';
+.CategoryItems{
+    margin: 1rem 2rem;;
+    padding-top:.5rem;
+    width:80%;
+    padding:.5rem;
+    transition:all .5s linear;
+
+    &:hover ,&:active ,&:focus{
+    box-shadow:1px 1px 3px $color-dark;
+    border-radius: $radius-med;
+    background-color:$color-ligth;
+
+}
+  & a{
+      text-decoration: none;
+        color: $color-success;
+        font-size: $font-small;
+        font-weight: bold;
+        padding:.5rem; 
+        transition: all .2s linear;
+        &:hover, &:focus , &:active{
+        //   color:  $color-danger;
+
+        }
+    }
+}
+.active{
+    border-radius: $radius-med;
+    box-shadow:1px 1px 3px $color-dark;
+    trasition:all .2s linear;
+    & a{
+        color: $color-danger;
+        border-radius: $radius-med;
+    }
+}

@@ -1,0 +1,114 @@
+@import "../../../styles/mainStyle.scss";
+.container {
+    position: relative;
+    box-shadow: 2px 2px 5px $color-ligth;
+    border-radius: $radius-med;
+    transition: all 0.2s linear;
+    box-sizing: border-box;
+    padding: 5px 2rem !important;
+    height: 400px;
+    max-height: 400px;
+    &:hover {
+        box-shadow: 4px 4px 20px $color-ligth;
+    }
+}
+.gallaryImage {
+    position: relative;
+    top: 0;
+    border-radius: $radius-med;
+    cursor: pointer;
+    z-index: 50;
+    & Image {
+        z-index: 50;
+    }
+}
+.HeartFill {
+    width: 30px;
+    height: 30px;
+    color: $color-danger;
+
+    z-index: 40;
+    overflow: hidden;
+    @include flexible;
+    cursor: pointer;
+    @include moveTop;
+    & span {
+        color: $color-danger;
+        font-size: 20px;
+        z-index: 50;
+        @include center;
+    }
+}
+.Heart {
+    width: 30px;
+    height: 30px;
+    color: $color-danger;
+    background-color: $color-white;
+    z-index: 40;
+    overflow: hidden;
+    @include flexible;
+    cursor: pointer;
+    @include moveTop;
+    & span {
+        color: $color-danger;
+        font-size: 20px;
+        z-index: 50;
+        @include center;
+    }
+}
+
+.title {
+    font-size: $font-med;
+    width: 100%;
+    text-align: start;
+    & h6 {
+        font-size: $font-small;
+        width: 200px;
+        font-weight: bold;
+    }
+}
+.cardInfo {
+    width: 100%;
+    height: 150px;
+}
+.description {
+    width: 100%;
+    text-align: start;
+    margin-bottom: 1rem;
+}
+.totalInfo {
+    @include felxBetween;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+}
+.price {
+    margin-top: 5px;
+    margin: 0.5rem 1.4rem;
+    & h6 {
+        font-weight: 650;
+    }
+}
+.mainStar {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    & h4 {
+        font-size: $font-small;
+        font-weight: bold;
+        text-align: center;
+        margin-right: 5px;
+    }
+    & .starIcon {
+        color: decrease-color($color-warning, 100%);
+        font-size: $font-med;
+        margin-top: -7px;
+        margin-right: 4px;
+        @include flexible;
+        cursor: pointer;
+        @include moveTop;
+    }
+}

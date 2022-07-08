@@ -1,0 +1,68 @@
+@import "../../styles/mainStyle.scss";
+.MenuList {
+    margin: 1rem 0;
+    @include flexible;
+    text-decoration: none;
+    list-style: none;
+    padding:.3rem;
+
+}
+
+.ListContainer {
+    position: fixed;
+    border-radius: $radius-med;
+    top: 10px;
+    overflow: hidden;
+    
+    & .Icon {
+        color: $color-orange;
+        font-size: 30px;
+        padding: 1rem;
+        cursor: pointer;
+
+        font-weight: bold;
+        &:hover {
+            color: $color-danger;
+        }
+
+    }
+    & .OpenMenuList {
+        position: relative;
+        left: 0px;
+        list-style: none;
+        transition: all .5s linear;
+        z-index: 100;
+        background: decrease-color($color-success,20%);
+        // border-: none;
+        border-radius: 0 $radius-med  $radius-med 0;
+        opacity:1;
+        // backdrop-filter: blur(10.8px);
+        // -webkit-backdrop-filter: blur(2.7px);
+       
+    }
+    & .CloseMenuList{
+        position: relative;
+        list-style: none;
+        left: -200px;
+        opacity:0;
+        transition: all .5s linear;
+    }
+}
+@keyframes openMenu{
+    from{
+    display: none;
+    }
+    to{
+        @include columnFlex;
+    }
+}
+@keyframes closeMenu{
+    from{
+        @include columnFlex;
+    }
+    to{ 
+        display: none;
+    
+    }
+    
+}

@@ -1,0 +1,29 @@
+@import "../../../styles/mainStyle.scss";
+
+.Input {
+    border-radius: $radius-med;
+    color: $color-orange;
+    background-color: $color-ligth;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    //  font-weight: bold;
+    font-size: $font-med;
+
+    font-family: Cantarell;
+
+    text-align: center;
+    transition: all 0.2s linear;
+
+    &:focus,
+    &:hover {
+        background-color: $color-warning;
+        border-radius: 0;
+
+        &::placeholder {
+            color: $color-dark;
+        }
+    }
+    &::placeholder {
+        color: $color-orange;
+    }
+}

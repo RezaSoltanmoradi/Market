@@ -1,0 +1,51 @@
+@import '../../styles/mainStyle.scss';
+.Cart{
+    position:relative;
+    border: 2px solid $color-orange;
+    border-radius: 50% 50% 5% 5%;
+    background-color:$color-warning ;
+    @include flexible;
+    transition:.2s all linear;
+    & span{
+        font-size:$font-small;
+    }
+    & .successBadge{
+        position:absolute;
+        top:-10px;
+        right:-8px;
+        border-radius:50%;
+        border:1px solid red;
+        width:20px;
+        height:22px;
+        background-color:$color-success ;
+        align-items:center;
+        transition:.2s all linear;
+   
+    & p{
+        font-size:10px;
+        padding:3px 0 0 0;
+        font-weight:bold;
+    }
+    }
+    & .dangerBadge{
+        background-color:$color-danger ;
+        position:absolute;
+        top:-10px;
+        right:-8px;
+        border-radius:50%;
+        border:1px solid red;
+        width:20px;
+        height:22px;
+        align-items:center;
+        & p{
+            font-size:10px;
+        padding:3px 0 0 0;
+        font-weight:bold;
+
+        }
+    }
+    &:hover{
+        box-shadow:2px 2px 5px $color-dark;
+        
+    }
+}

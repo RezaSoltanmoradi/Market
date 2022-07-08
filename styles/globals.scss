@@ -1,0 +1,104 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family:nasim, -apple-system, yekan, BlinkMacSystemFont, Segoe UI, Roboto,
+        Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+        sans-serif;
+        &::-webkit-scrollbar {
+          width: 10px;
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 5px grey; 
+          border-radius: 10px;
+        }
+         
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          background: #d7263d; 
+          border-radius: 10px;
+        }
+        
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+          background: #d7263d; 
+        }
+     ::selection {
+      background: #c5d86d;
+      color:#2e294e ;
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: sultan;
+    src: url(../assets/fonts/sultan/sultan-adan2.ttf);
+}
+@font-face {
+    font-family: Rezvan;
+    src: url(../assets/fonts/A.Rezvan.ttf);
+}
+@font-face {
+    font-family: nasim;
+    src: url(../assets/fonts/nasim.ttf);
+}
+@font-face {
+    font-family: sahel;
+    src: url(../assets/fonts/Sahel-Bold.ttf);
+}
+@font-face {
+    font-family: samim;
+    src: url(../assets/fonts/Samim-Bold.ttf);
+}
+@font-face {
+    font-family: DigmaSogand;
+    src: url(../assets/fonts/DimaSogand.ttf);
+}
+@font-face {
+    font-family: karbalaei;
+    src: url(../assets/fonts/Karbalaei.ttf);
+}
+/* @font-face {
+  font-family: lalezar;
+  src: url(./fonts/Lalezar-Regular.ttf);
+} */
+/*
+@font-face {
+  font-family: sogand;
+  src: url(./components/Ui/font/SOGAND.ttf);
+}
+@font-face {
+  font-family: vazir;
+  src: url(./components/Ui/font/Vazir.ttf);
+}
+@font-face {
+  font-family: yekanBold;
+  src: url(./components/Ui/font/WyekanBold_mypsdshop.ir.ttf);
+}
+@font-face {
+  font-family: Wyekan;
+  src: url(./components/Ui/font/W_yekan_mypsdshop.ir.ttf);
+}
+@font-face {
+  font-family: yekan;
+  src: url(./components/Ui/font/yekan.ttf);
+}
+@font-face {
+  font-family: sultan;
+  src: url(./components/Ui/font/sultanadan/sultan-adan.ttf);
+}
+
+@font-face {
+  font-family: sultan5;
+  src: url(./components/Ui/font/sultanadan/sultan-adan5.ttf);
+} */

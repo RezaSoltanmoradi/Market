@@ -1,0 +1,20 @@
+@import "../../../styles/mainStyle.scss";
+.btn {
+    border-radius: $radius-med;
+    color: $color-orange;
+    background-color: $color-ligth;
+    padding: 0.2rem 0.3rem;
+    font-weight: bold;
+    font-size: $font-med;
+    font-family: Rezvan;
+    font-weight: bold;
+     border: none;
+    @include center;
+    transition: all .2s linear;
+    &:hover , &:active , &:focus {
+        color: decrease-color($color-warning, 100);
+        background-color: $color-success;
+        border-radius: 0;
+
+    }
+}

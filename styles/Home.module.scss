@@ -1,0 +1,10 @@
+@import "mainStyle.scss";
+
+.container {
+    // @include flexible;
+    flex-wrap: wrap;
+}
+.cardItems {
+    @include flexible;
+ 
+}
