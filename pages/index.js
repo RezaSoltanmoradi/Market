@@ -1,17 +1,18 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
-import Spinner from "../Components/Spinner/Spinner";
-
-import { getAllCategories, getAllProducts } from "../all-requests";
+import { useState, useEffect, useCallback } from "react";
+import { getAllProducts } from "../all-requests";
 import Carousell from "../Components/Carousell/Carousell";
-export default function Home({ categories, products }) {
-    const [loading, setLoading] = useState(true);
+
+export default function Home() {
+    const [loadedProducts, setLoadedProducts] = useState(null);
 
     useEffect(() => {
-        if (categories && products) {
-            setLoading(false);
-        }
-    }, [categories, products]);
+        const fetchData = async () => {
+            const allProducts = await getAllProducts();
+            setLoadedProducts(allProducts);
+        };
+        fetchData();
+    }, []);
     return (
         <div>
             <Head>
@@ -23,22 +24,18 @@ export default function Home({ categories, products }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className=" col-12 row">
-                {loading && <Spinner />}
-
-                <div className="col-12 mt-4">
-                    <Carousell products={products} />
+                <div className="col-12 mt-5">
+                    <Carousell products={loadedProducts} />
                 </div>
             </div>
         </div>
     );
 }
-export const getStaticProps = async () => {
-    const allProducts = await getAllProducts();
-    const allCategories = await getAllCategories();
-    return {
-        props: {
-            categories: allCategories,
-            products: allProducts,
-        },
-    };
-};
+// export const getServerSideProps = async () => {
+//     const allProducts = await getAllProducts();
+//     return {
+//         props: {
+//             products: allProducts,
+//         },
+//     };
+// };

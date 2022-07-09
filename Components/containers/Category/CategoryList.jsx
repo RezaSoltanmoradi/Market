@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CategoryItem from "./CategoryItem";
 import classes from "./CategoryList.module.scss";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 const Categories = ({ categories }) => {
 

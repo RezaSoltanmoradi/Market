@@ -1,24 +1,42 @@
 import { useEffect, useState } from "react";
 import Product from "../Product/Product";
+import productImage from "../../assets/images/chair.jpg";
 const Products = ({ products }) => {
-    const [starFill, setStarFill] = useState(false);
-    const [heartFill, setHeartFill] = useState(false);
-    const [newProducts, setNewProducts] = useState([]);
+    let initialProducts = {
+        id: null,
+        title: null,
+        price: null,
+        description: null,
+        image: null,
+        rate: null,
+        star: null,
+        heart: null,
+    };
+    setTimeout(() => {
+        initialProducts = {
+            id: "p1",
+            title: "hello",
+            price: 5.5,
+            description: "whats up?",
+            image: productImage,
+            rate: 3.3,
+            star: false,
+            heart: false,
+        };
+    }, 1000);
+
+    const [newProducts, setNewProducts] = useState(null);
     useEffect(() => {
-        if(!products){
-            return;
-        }
-        console.log( {products});
         setNewProducts(
-            products.map((pro) => ({
+            products?.map((pro) => ({
                 id: pro.id,
                 title: pro.title,
                 price: pro.price,
                 description: pro.description,
                 image: pro.image,
                 rate: pro.rating.rate,
-                star: starFill,
-                heart: heartFill,
+                star: false,
+                heart: false,
             }))
         );
     }, [products]);
@@ -44,8 +62,7 @@ const Products = ({ products }) => {
 
     return (
         <section className="  mx-auto col-12 row">
-            {newProducts &&
-                newProducts.map((product) => (
+            {/* { newProducts?.map((product) => (
                     <Product
                         id={product.id}
                         key={product.id}
@@ -59,7 +76,19 @@ const Products = ({ products }) => {
                         heart={product.heart}
                         onHeart={handleHeartFill}
                     />
-                ))}
+                ))} */}
+
+            <Product
+                title={initialProducts.title}
+                price={initialProducts.price}
+                description={initialProducts.description}
+                image={initialProducts.image}
+                rate={initialProducts.rate}
+                star={initialProducts.star}
+                onStar={handleStarFill}
+                heart={initialProducts.heart}
+                onHeart={handleHeartFill}
+            />
         </section>
     );
 };

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllCategories, getCategoryById} from "../../all-requests";
 import Products from "../../Components/Products/Products";
 import Sidebar from "../../Components/SideBar/SideBar";
-import Spinner from "../../Components/Spinner/Spinner";
+import Skeleton from 'react-loading-skeleton';
 
 const SingleCategory = ({ categories, singleCategory }) => {
     
@@ -20,11 +20,15 @@ const SingleCategory = ({ categories, singleCategory }) => {
             <div className="col-12 col-md-3 pt-4 mx-0 px-0 h-100">
                 <Sidebar categories={categories} />
             </div>
-            {loading && <Spinner />}
+         
+            {/* {loading && <Spinner />} */}
             <div className="col-12 col-md-8">
-                {singleCategory.length > 0 && (
+                {singleCategory.length > 0?(
                     <Products products={products} />
-                )}
+                ) : 
+                <h1> <Skeleton/></h1>
+                
+                }
             </div>
         </div>
     );
