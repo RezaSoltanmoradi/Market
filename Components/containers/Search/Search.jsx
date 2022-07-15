@@ -3,7 +3,7 @@ import Button from "../../UI/Button/Button";
 import { BsSearch } from "react-icons/bs";
 
 import { useState } from "react";
-const Search = () => {
+const Search = ({ products }) => {
     const [value, setValue] = useState("");
     const changeInputhander = (event) => {
         setValue(event.target.value);

@@ -9,17 +9,16 @@
         text-decoration: none;
         font-size: $font-small;
         font-weight: bold;
-        transition: all .3s linear;
-
+        transition: all 0.3s linear;
+        font-family: sans-serif;
         &:hover,
         &:active {
-            color: increase-color($color-danger, 100%);
+            color: $color-orange;
         }
-      }
     }
-   .active {
+}
+.active {
     & a {
-      color: increase-color($color-danger, 100%);
+        color: $color-orange;
     }
-    }
-    
+}

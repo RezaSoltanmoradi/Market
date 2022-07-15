@@ -58,7 +58,6 @@
 }
 
 .title {
-    font-size: $font-med;
     width: 100%;
     text-align: start;
     & h6 {
@@ -80,8 +79,7 @@
     @include felxBetween;
     align-items: center;
     margin-bottom: 0.5rem;
-    position: absolute;
-    bottom: 0;
+    margin-left: 0;
     justify-content: center;
     align-items: center;
 }

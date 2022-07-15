@@ -1,36 +1,29 @@
-@import '../../../styles/mainStyle.scss';
-.CategoryItems{
-    margin: 1rem 2rem;;
-    padding-top:.5rem;
-    width:80%;
-    padding:.5rem;
-    transition:all .5s linear;
+@import "../../../styles/mainStyle.scss";
+.CategoryItems {
+    margin: .5rem 1rem;
+    padding-top: 0.5rem;
+    width: 80%;
+    padding: 0.5rem;
+    transition: all 0.5s linear;
 
-    &:hover ,&:active ,&:focus{
-    box-shadow:1px 1px 3px $color-dark;
-    border-radius: $radius-med;
-    background-color:$color-ligth;
-
-}
-  & a{
-      text-decoration: none;
-        color: $color-success;
+    & a {
+        text-decoration: none;
+        color: $color-dark;
+        opacity: 0.5;
         font-size: $font-small;
         font-weight: bold;
-        padding:.5rem; 
-        transition: all .2s linear;
-        &:hover, &:focus , &:active{
-        //   color:  $color-danger;
-
+        padding: 0.7rem;
+        transition: all 0.2s linear;
+        &:hover {
+            color: $color-orange;
+            opacity: 1;
         }
     }
 }
-.active{
-    border-radius: $radius-med;
-    box-shadow:1px 1px 3px $color-dark;
-    trasition:all .2s linear;
-    & a{
-        color: $color-danger;
-        border-radius: $radius-med;
+.active {
+    transition: all 0.2s linear;
+    & a {
+        color: $color-orange;
+        opacity: 1;
     }
 }

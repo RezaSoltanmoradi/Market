@@ -17,7 +17,7 @@ const Card = ({
     id,
 }) => {
     return (
-        <SkeletonTheme baseColor="#c5d86d" highlightColor="#ccc">
+        <SkeletonTheme baseColor="#ccc" highlightColor="#c5d86d">
             <div
                 className={classNames({
                     [classes.container]: true,
@@ -58,7 +58,7 @@ const Card = ({
                                 objectFit="contain"
                             />
                         ) : (
-                            <Skeleton />
+                            <Skeleton width={150} height={150} />
                         )}
                     </div>
                 </div>
@@ -74,7 +74,11 @@ const Card = ({
                             "col-10": true,
                         })}
                     >
-                        <h6>{title?.substring(0, 18) || <Skeleton />}</h6>
+                        <h6>
+                            {title?.substring(0, 18) || (
+                                <Skeleton width={100} height={25} />
+                            )}
+                        </h6>
                     </div>
                     <div
                         className={classNames({
@@ -82,12 +86,14 @@ const Card = ({
                             "col-12 mt-4": true,
                         })}
                     >
-                        {description?.substring(0, 50) + " ..." || <Skeleton />}
+                        {description?.substring(0, 48).toLowerCase() || (
+                            <Skeleton count={2} width={140} />
+                        )}
                     </div>
                     <div
                         className={classNames({
                             [classes.totalInfo]: true,
-                            " d-flex ": true,
+                            "col-12 d-flex": true,
                         })}
                     >
                         <div
@@ -96,7 +102,7 @@ const Card = ({
                                 "col-6 text-start": true,
                             })}
                         >
-                            <h6>${price || <Skeleton />}</h6>
+                            <h6>${price || <Skeleton width={30} />}</h6>
                         </div>
                         <div
                             className={classNames({
@@ -122,7 +128,7 @@ const Card = ({
                                 </div>
                             )}
 
-                            <h6>{rate || <Skeleton />}</h6>
+                            <h6>{rate || <Skeleton width={30} />}</h6>
                         </div>
                     </div>
                 </div>

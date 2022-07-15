@@ -1,0 +1,25 @@
+.FilterByCategory {
+    & form {
+        & label {
+            margin: 0.3rem 1rem;
+            font-size: 20px;
+            font-weight: 600;
+            opacity: 0.7;
+            cursor: pointer;
+            &:checked,
+            &:hover {
+                color: #f46036;
+                opacity: 1;
+            }
+        }
+        & input {
+            opacity: 1;
+            margin: 0.5rem;
+            font-size: 20px;
+            cursor: pointer;
+            &:checked {
+                background-color: #f46036;
+            }
+        }
+    }
+}

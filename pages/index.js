@@ -1,9 +1,10 @@
 import Head from "next/head";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { getAllProducts } from "../all-requests";
 import Carousell from "../Components/Carousell/Carousell";
 
 export default function Home() {
+
     const [loadedProducts, setLoadedProducts] = useState(null);
 
     useEffect(() => {
@@ -13,6 +14,7 @@ export default function Home() {
         };
         fetchData();
     }, []);
+
     return (
         <div>
             <Head>

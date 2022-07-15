@@ -5,15 +5,16 @@ import { useRouter } from "next/router";
 import classNames from "classnames";
 const MenuItem = ({ children, link }) => {
     const router = useRouter();
-    
-    const validPath=  link.includes('/products')&& router.asPath.includes(link);
-    
+
+    const validPath =
+        link.includes("/products") && router.asPath.includes(link);
+
     return (
         <Fragment>
             <li
                 className={classNames({
                     [classes.MenuItem]: true,
-                    [classes.active]: router.pathname===link || validPath,
+                    [classes.active]: router.asPath === link || validPath,
                     "w-100 h-100 px-0 mx-auto text-center": true,
                 })}
             >

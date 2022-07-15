@@ -1,0 +1,13 @@
+@import "../../../styles/mainStyle.scss";
+
+.FilterByPrice {
+    & h4 {
+        font-weight: bold;
+        font-size: large;
+        margin: 1rem 0;
+    }
+}
+.FilterPrice {
+    width: 80%;
+    margin: 1rem;
+}

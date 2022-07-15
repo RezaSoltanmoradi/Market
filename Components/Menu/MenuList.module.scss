@@ -4,8 +4,7 @@
     @include flexible;
     text-decoration: none;
     list-style: none;
-    padding:.3rem;
-
+    padding: 0.3rem;
 }
 
 .ListContainer {
@@ -13,7 +12,7 @@
     border-radius: $radius-med;
     top: 10px;
     overflow: hidden;
-    
+
     & .Icon {
         color: $color-orange;
         font-size: 30px;
@@ -22,47 +21,109 @@
 
         font-weight: bold;
         &:hover {
-            color: $color-danger;
+            color: $color-orange;
         }
-
     }
     & .OpenMenuList {
         position: relative;
         left: 0px;
         list-style: none;
-        transition: all .5s linear;
+        transition: all 0.5s linear;
         z-index: 100;
-        background: decrease-color($color-success,20%);
-        // border-: none;
-        border-radius: 0 $radius-med  $radius-med 0;
-        opacity:1;
-        // backdrop-filter: blur(10.8px);
-        // -webkit-backdrop-filter: blur(2.7px);
-       
+        background: decrease-color($color-success, 20%);
+        border-radius: 0 $radius-med $radius-med 0;
+        opacity: 1;
     }
-    & .CloseMenuList{
+    & .CloseMenuList {
         position: relative;
         list-style: none;
         left: -200px;
-        opacity:0;
-        transition: all .5s linear;
+        opacity: 0;
+        transition: all 0.5s linear;
     }
 }
-@keyframes openMenu{
-    from{
-    display: none;
-    }
-    to{
-        @include columnFlex;
-    }
-}
-@keyframes closeMenu{
-    from{
-        @include columnFlex;
-    }
-    to{ 
+@keyframes openMenu {
+    from {
         display: none;
-    
     }
-    
+    to {
+        @include columnFlex;
+    }
+}
+@keyframes closeMenu {
+    from {
+        @include columnFlex;
+    }
+    to {
+        display: none;
+    }
+}
+.Cart {
+    position: relative;
+    border-radius: 50% 50% 5% 5%;
+    background-color: $color-orange;
+    @include flexible;
+    transition: 0.2s all linear;
+    & span {
+        font-size: $font-small;
+        color: $color-white;
+        font-weight: bold;
+        padding: 5px 5px 3px 3px;
+        transition: 0.2s all linear;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $color-dark;
+        }
+    }
+    & .successBadge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        border-radius: 50%;
+        width: 20px;
+        height: 22px;
+        background-color: $color-white;
+        align-items: center;
+        transition: 0.2s all linear;
+        display: flex;
+        justify-content: center;
+        align-items: flex-center;
+
+        & p {
+            color: black;
+            width: 100%;
+            height: 100%;
+            font-size: 15px;
+            padding: 2px 0 0 2px;
+            align-items: center;
+            font-weight: bold;
+        }
+    }
+    & .dangerBadge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        border-radius: 50%;
+        width: 20px;
+        height: 22px;
+        background-color: $color-white;
+        align-items: center;
+        transition: 0.2s all linear;
+        display: flex;
+        justify-content: center;
+        align-items: flex-center;
+        & p {
+            color: black;
+            width: 100%;
+            height: 100%;
+            font-size: 15px;
+            padding: 2px 0 0 2px;
+            align-items: center;
+            font-weight: bold;
+        }
+    }
+    &:hover {
+        box-shadow: 2px 2px 5px $color-dark;
+    }
 }

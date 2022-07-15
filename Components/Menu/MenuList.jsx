@@ -2,14 +2,15 @@ import { Fragment, useState } from "react";
 import classes from "./MenuList.module.scss";
 import MenuItem from "./MenuItem";
 import classNames from "classnames";
-import Cart from "../Cart/Cart";
+import { BsCart, BsCartCheck } from "react-icons/bs";
 import { BsX, BsList } from "react-icons/bs";
 const MenuList = () => {
     const [openMenubar, setOpenMenubar] = useState(true);
+    const cartData = [{}, {}, {}];
     return (
         <Fragment>
             <div className="col-10 row">
-                <nav className="col-12 my-0 py-0 d-none d-lg-flex">
+                <nav className="col-12 my-0 pb-0 d-none d-lg-flex">
                     <ul
                         className={classNames({
                             [classes.MenuList]: true,
@@ -17,7 +18,32 @@ const MenuList = () => {
                         })}
                     >
                         <MenuItem link="/cart">
-                            <Cart />
+                            <div
+                                className={classNames({
+                                    [classes.Cart]: true,
+                                    "col-4 mx-auto": true,
+                                })}
+                            >
+                                <span>
+                                    {cartData.length > 0 ? (
+                                        <BsCartCheck />
+                                    ) : (
+                                        <BsCart />
+                                    )}
+                                </span>
+                                <span
+                                    className={classNames({
+                                        [classes.successBadge]:
+                                            cartData.length > 0,
+                                        [classes.dangerBadge]:
+                                            cartData.length === 0,
+                                    })}
+                                >
+                                    <p className=" w-100 text-center">
+                                        {cartData.length}
+                                    </p>
+                                </span>
+                            </div>
                         </MenuItem>
                         <MenuItem link="/"> Home</MenuItem>
 
@@ -49,7 +75,32 @@ const MenuList = () => {
                         })}
                     >
                         <MenuItem link="/cart">
-                            <Cart />
+                            <div
+                                className={classNames({
+                                    [classes.Cart]: true,
+                                    "col-3 mx-auto": true,
+                                })}
+                            >
+                                <span>
+                                    {cartData.length > 0 ? (
+                                        <BsCartCheck />
+                                    ) : (
+                                        <BsCart />
+                                    )}
+                                </span>
+                                <span
+                                    className={classNames({
+                                        [classes.successBadge]:
+                                            cartData.length > 0,
+                                        [classes.dangerBadge]:
+                                            cartData.length === 0,
+                                    })}
+                                >
+                                    <p className=" w-100 text-center">
+                                        {cartData.length}
+                                    </p>
+                                </span>
+                            </div>
                         </MenuItem>
                         <MenuItem link="/"> Home</MenuItem>
 

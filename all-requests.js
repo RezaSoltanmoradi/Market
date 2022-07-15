@@ -1,7 +1,5 @@
 import axios from "axios";
-import { useCallback } from "react";
 import { Axios } from "./helper/axios";
-const baseUrl = "https://fakestoreapi.com";
 
 export const getAllProducts = async () => {
     const request = await Axios.get("/products");
@@ -20,6 +18,8 @@ export const getAllCategories = async () => {
 };
 
 export const getCategoryById = async (categoryId) => {
-    const request = await Axios.get(`/products/category/${categoryId}`);
+    const convertId = categoryId?.replace(/-/g, " ");
+    const request = await Axios.get(`/products/category/${convertId}`);
     return request.data;
 };
+    

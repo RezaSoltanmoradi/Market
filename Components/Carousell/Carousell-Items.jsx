@@ -17,7 +17,7 @@ const CarrousellItems = ({
         ? products[count]
         : {};
     return (
-        <SkeletonTheme baseColor="#c5d86d" highlightColor="#ccc">
+        <SkeletonTheme baseColor="#ccc" highlightColor="#c5d86d">
             <div
                 className={classNames({
                     [classes.container]: true,
@@ -68,7 +68,7 @@ const CarrousellItems = ({
                                     height={250}
                                 />
                             ) : (
-                                <Skeleton />
+                                <Skeleton width={250} height={250} />
                             )}
                         </div>
 
@@ -98,7 +98,11 @@ const CarrousellItems = ({
                             "col-10 mx-4 text-start": true,
                         })}
                     >
-                        <h4>{title?.substring(0, 25) || <Skeleton />}</h4>
+                        <h4>
+                            {title?.substring(0, 25) || (
+                                <Skeleton width={250} height={25} />
+                            )}
+                        </h4>
                     </div>
                     <div
                         className={classNames({
@@ -106,12 +110,16 @@ const CarrousellItems = ({
                             "col-10 mx-4 offset-4 ": true,
                         })}
                     >
-                        <p>{description?.substring(0, 150) || <Skeleton />}</p>
+                        <p>
+                            {description?.substring(0, 150) || (
+                                <Skeleton count={2} width={300} />
+                            )}
+                        </p>
                     </div>
                     <div
                         className={classNames({
                             [classes.totalInfo]: true,
-                            " d-flex mx-4": true,
+                            "col-12 d-flex": true,
                         })}
                     >
                         <div
@@ -120,7 +128,7 @@ const CarrousellItems = ({
                                 "col-6 text-start ": true,
                             })}
                         >
-                            <h6> $ {price || <Skeleton />}</h6>
+                            <h6> $ {price || <Skeleton width={50} />}</h6>
                         </div>
                         <div
                             className={classNames({
@@ -128,7 +136,7 @@ const CarrousellItems = ({
                                 "col-6 ": true,
                             })}
                         >
-                            <h4>{rating?.rate || <Skeleton />}</h4>
+                            <h4>{rating?.rate || <Skeleton width={50} />}</h4>
 
                             <span className={classes.starIcon}>
                                 <FaStar />

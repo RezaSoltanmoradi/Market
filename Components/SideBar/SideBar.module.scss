@@ -1,13 +1,11 @@
 .Sidebar {
     position: fixed;
     display: flex;
-    justify-content: center;
     align-items: flex-start;
-    flex-direction: row;
+    flex-direction: column;
     height: 100vh;
     width: 22%;
     max-height: 100vh;
-    font-family: samim;
     & .sidebarBorder {
         position: absolute;
         right: 0;

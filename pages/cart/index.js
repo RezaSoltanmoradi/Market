@@ -1,14 +1,12 @@
 import { Fragment } from "react";
-
-const Cart=()=>{
-
+import Cart from "../../Components/Cart/Cart";
+const CartPage = () => {
     return (
         <div className="container">
             <h2 className="alert alert-primary m-3 p-3 text-center">
-                {" "}
-                The Cart Page
+                <Cart />
             </h2>
         </div>
-    )
-}
-export default Cart;
+    );
+};
+export default CartPage;

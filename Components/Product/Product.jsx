@@ -13,7 +13,7 @@ const Product = ({
     onHeart,
 }) => {
     return (
-        <div className="col-10 mx-auto col-md-6 col-lg-3">
+        <div className=" col-10 offset-1 offset-sm-0 col-sm-6 col-lg-4 col-xl-3">
             <Card
                 id={id}
                 title={title}
