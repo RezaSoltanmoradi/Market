@@ -1,6 +1,6 @@
 import classes from "./Input.module.scss";
 import classNames from "classnames";
-const Input = ({ ChangeInput, inputValue,placeholder }) => {
+const Input = ({ ChangeInput, inputValue, placeholder }) => {
     return (
         <input
             className={classNames({

@@ -17,7 +17,7 @@ const CarrousellItems = ({
         ? products[count]
         : {};
     return (
-        <SkeletonTheme baseColor="#ccc" highlightColor="#c5d86d">
+        <SkeletonTheme baseColor="#ededed" highlightColor="white">
             <div
                 className={classNames({
                     [classes.container]: true,

@@ -1,0 +1,62 @@
+@import '../../../styles/mainStyle.scss';
+.FormContainer{
+    position:fixed;
+    background-color:$color-white;
+    top:0;
+    margin:0 auto;
+    @include columnFlex;
+    max-height:300px;
+    height:auto;
+    @include boxShadow;
+    border-radius:7px;
+    z-index:200;
+    owerflow:hidden;
+}
+.Form {
+    @include columnFlex;
+
+    border-radius: $radius-small;
+    margin: 10px auto;
+    height:50px;
+    z-index: 500 !important;
+    & form {
+        & input {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            text-align: start;
+            width:100%;
+            margin-top:3px;
+            z-index: 500;
+
+        }
+        & span {
+            font-size: 20px;
+            align-items: center;
+            transition: all 0.2s linear;
+            font-weight: bold;
+            &:hover {
+                color: $color-danger;
+                cursor: pointer;
+            }
+        }
+        & .RemoveText {
+            & span {
+                animation:startAnimate .5s linear;
+                opacity:1;
+            }
+        }
+    }
+}
+.formNoActive{
+    background-color: $color-ligth;
+}
+.FormActive{
+background-color:$color-white;
+@include boxShadow;
+
+}
+@keyframes startAnimate {
+    0%   {opacity:0}
+    100% {opacity:1}
+  }

@@ -61,9 +61,11 @@ const MenuList = () => {
                         [classes.ListContainer]: true,
                         "col-6 my-0 py-0 d-lg-none": true,
                     })}
-                    onClick={() => setOpenMenubar(!openMenubar)}
                 >
-                    <span className={classes.Icon}>
+                    <span
+                        className={classes.Icon}
+                        onClick={() => setOpenMenubar(!openMenubar)}
+                    >
                         {openMenubar ? <BsList /> : <BsX />}
                     </span>
 

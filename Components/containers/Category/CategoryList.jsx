@@ -8,7 +8,7 @@ const Categories = ({ categories }) => {
             <h4 className="mx-5"> Category</h4>
             <ul>
                 {!categories && (
-                    <SkeletonTheme baseColor="#ccc" highlightColor="#c5d86d">
+                    <SkeletonTheme baseColor="#ededed" highlightColor="white">
                         <div className="mt-2">
                             <Skeleton
                                 count={4}
@@ -29,7 +29,6 @@ const Categories = ({ categories }) => {
                     </CategoryItem>
                 ))}
             </ul>
-            
         </nav>
     );
 };

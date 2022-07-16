@@ -3,7 +3,7 @@ $color-orange: #f46036;
 $color-dark: #2e294e;
 $color-success: #1b998b;
 $color-warning: #c5d86d;
-$color-ligth: #ccc;
+$color-ligth: #ededed;
 $color-white: white;
 
 $font-xsmall: 15px;
@@ -16,6 +16,9 @@ $radius-small: 5px;
 $radius-med: 10px;
 $redius-large: 15px;
 
+@mixin boxShadow{
+ box-shadow: 4px 4px 10px #adacac;
+}
 @mixin flexible {
     display: flex;
     justify-content: center;

@@ -34,7 +34,7 @@ const FilterByCategory = ({ categories, filterByCategory }) => {
     };
 
     return (
-        <SkeletonTheme baseColor="#ccc" highlightColor="#c5d86d">
+        <SkeletonTheme baseColor="#ededed" highlightColor="white">
             <div
                 className={classNames({
                     "mx-5 mt-2": true,

@@ -1,12 +1,13 @@
 @import "../../styles/mainStyle.scss";
 .container {
-    box-shadow: 2px 2px 5px $color-ligth;
+    box-shadow: 0px 4px 10px #adacac;
     border-radius: $radius-med;
     transition: all 0.2s linear;
     box-sizing: border-box;
     gap: 2px;
     &:hover {
-        box-shadow: 4px 4px 20px $color-ligth;
+        box-shadow: 4px 0px 10px #878787;
+        border-radius:0;
     }
 }
 .gallaryImage {
