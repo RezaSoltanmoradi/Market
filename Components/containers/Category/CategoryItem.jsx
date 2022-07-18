@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import classes from "./CategoryItem.module.scss";
 const CategoryItem = ({ children, link, id }) => {
     const router = useRouter();

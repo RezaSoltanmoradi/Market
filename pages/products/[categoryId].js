@@ -43,7 +43,7 @@ const SingleCategory = () => {
         );
     }
     return (
-        <div className="col-12 row mx-auto">
+        <div className="col-12 row mx-auto ">
             <div className="col-12 col-lg-3 pt-4 mx-0 px-0 h-100">
                 <Sidebar
                     products={products}

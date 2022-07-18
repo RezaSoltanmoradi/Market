@@ -1,0 +1,15 @@
+@import '../../../styles/mainStyle';
+.SearchItem{
+    margin:.5rem 0;
+& a{
+    text-decoration: none;
+    color:$color-orange;
+    font-size:$font-small;
+
+    & span{
+        color: red;
+        font-weight: bold;
+        background-color:red;
+    }
+}
+}

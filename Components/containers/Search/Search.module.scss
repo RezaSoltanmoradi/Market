@@ -1,34 +1,53 @@
-@import '../../../styles/mainStyle.scss';
-.FormContainer{
-    position:fixed;
-    background-color:$color-white;
-    top:0;
-    margin:0 auto;
-    @include columnFlex;
-    max-height:300px;
-    height:auto;
-    @include boxShadow;
-    border-radius:7px;
-    z-index:200;
-    owerflow:hidden;
+@import "../../../styles/mainStyle.scss";
+.container {
+    position: relative;
+    top: 0;
+    margin-top: -35px;
+    margin: -35 auto 0;
+    padding-top: 0;
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #d7263d;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #d7263d;
+    }
 }
 .Form {
-    @include columnFlex;
-
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: culomn;
     border-radius: $radius-small;
     margin: 10px auto;
-    height:50px;
+    padding-bottom: 5px;
     z-index: 500 !important;
     & form {
+        height: 40px;
+        background: $color-ligth;
+        border-radius: $radius-small;
+        padding: 5px;
         & input {
             border: none;
             outline: none;
             background-color: transparent;
             text-align: start;
-            width:100%;
-            margin-top:3px;
+            width: 100%;
+            margin-top: 3px;
             z-index: 500;
-
+            font-size:$font-small;
         }
         & span {
             font-size: 20px;
@@ -42,21 +61,62 @@
         }
         & .RemoveText {
             & span {
-                animation:startAnimate .5s linear;
-                opacity:1;
+                animation: startAnimate 0.5s linear;
+                opacity: 1;
             }
         }
     }
 }
-.formNoActive{
+.formNoActive {
     background-color: $color-ligth;
+    & .NavList {
+        display: none;
+    }
 }
-.FormActive{
-background-color:$color-white;
-@include boxShadow;
+.FormActive {
+    display: flex;
+    height: 200px;
+    max-height: 200px;
+    overflow-y: scroll;
+    animation: startBigger 0.1s linear;
+    background-color: $color-white;
+    @include boxShadow;
 
+    & .NavList {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: start;
+        position: absolute;
+        width:100;
+        & ul {
+            list-style: none;
+            width: 100%;
+        }
+    }
 }
 @keyframes startAnimate {
-    0%   {opacity:0}
-    100% {opacity:1}
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes startBigger {
+    0% {
+        height: 50px;
+    }
+    100% {
+        height: 200px;
+    }
+}
+@media screen and (max-width: 990px) {
+    .container {
+        position: relative;
+        top: -30px;
+        margin-top: 0;
+        margin: 0 auto 0;
+        padding-top: 0;
+    }
+}

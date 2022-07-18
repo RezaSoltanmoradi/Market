@@ -4,12 +4,17 @@ import MenuItem from "./MenuItem";
 import classNames from "classnames";
 import { BsCart, BsCartCheck } from "react-icons/bs";
 import { BsX, BsList } from "react-icons/bs";
+import Backdrop from "../UI/Backdrop/Backdrop";
+
 const MenuList = () => {
     const [openMenubar, setOpenMenubar] = useState(true);
     const cartData = [{}, {}, {}];
     return (
         <Fragment>
-            <div className="col-10 row">
+            <div className={classNames({
+                "col-10 row":true,
+            })}>
+            <Backdrop closeModal={()=>setOpenMenubar(true)} showModal={!openMenubar}/>
                 <nav className="col-12 my-0 pb-0 d-none d-lg-flex">
                     <ul
                         className={classNames({
@@ -59,7 +64,7 @@ const MenuList = () => {
                 <nav
                     className={classNames({
                         [classes.ListContainer]: true,
-                        "col-6 my-0 py-0 d-lg-none": true,
+                        "col-5 my-0 py-0 d-lg-none text-start": true,
                     })}
                 >
                     <span
@@ -73,14 +78,14 @@ const MenuList = () => {
                         className={classNames({
                             [classes.OpenMenuList]: !openMenubar,
                             [classes.CloseMenuList]: openMenubar,
-                            "my-3": true,
+                            "my-3 text-start": true,
                         })}
                     >
                         <MenuItem link="/cart">
                             <div
                                 className={classNames({
                                     [classes.Cart]: true,
-                                    "col-3 mx-auto": true,
+                                    "col-3": true,
                                 })}
                             >
                                 <span>

@@ -15,7 +15,7 @@ const MenuItem = ({ children, link }) => {
                 className={classNames({
                     [classes.MenuItem]: true,
                     [classes.active]: router.asPath === link || validPath,
-                    "w-100 h-100 px-0 mx-auto text-center": true,
+                    "w-100 h-100 px-0 mx-auto": true,
                 })}
             >
                 <Link href={link}>

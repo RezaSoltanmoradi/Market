@@ -1,10 +1,13 @@
 @import "../../styles/mainStyle.scss";
 .MenuList {
     margin: 1rem 0;
-    @include flexible;
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
     text-decoration: none;
     list-style: none;
     padding: 0.3rem;
+    z-index: 200!important;
 }
 
 .ListContainer {
@@ -12,7 +15,8 @@
     border-radius: $radius-med;
     top: 10px;
     overflow: hidden;
-
+    z-index: 200!important;
+   
     & .Icon {
         color: $color-orange;
         font-size: 30px;
@@ -30,7 +34,7 @@
         list-style: none;
         transition: all 0.5s linear;
         z-index: 100;
-        background: decrease-color($color-success, 20%);
+        background: decrease-color($color-ligth, 20%);
         border-radius: 0 $radius-med $radius-med 0;
         opacity: 1;
     }
