@@ -7,19 +7,27 @@ import { BsX, BsList } from "react-icons/bs";
 import Backdrop from "../UI/Backdrop/Backdrop";
 
 const MenuList = () => {
-    const [openMenubar, setOpenMenubar] = useState(true);
+    const [openMenubar, setOpenMenubar] = useState(false);
     const cartData = [{}, {}, {}];
+    
     return (
         <Fragment>
-            <div className={classNames({
-                "col-10 row":true,
-            })}>
-            <Backdrop closeModal={()=>setOpenMenubar(true)} showModal={!openMenubar}/>
-                <nav className="col-12 my-0 pb-0 d-none d-lg-flex">
+            <div
+                className={classNames({
+                    "col-10 row": true,
+                })}
+            >
+                {openMenubar && (
+                    <Backdrop
+                        closeModal={() => setOpenMenubar(false)}
+                        showModal={openMenubar}
+                    />
+                )}
+                <nav className="col-12 my-0 pb-0 d-none d-lg-flex align-items-center">
                     <ul
                         className={classNames({
                             [classes.MenuList]: true,
-                            "col-12 d-none d-lg-flex my-0 py-0 ": true,
+                            "col-12 justify-content-center text-center align-items-center my-0 py-0 ": true,
                         })}
                     >
                         <MenuItem link="/cart">
@@ -61,27 +69,42 @@ const MenuList = () => {
                     </ul>
                 </nav>
 
+
+
+                <nav className="col-12 my-0 pb-0 d-flex d-lg-none   ">
+                    <span
+                        className={classes.Icon}
+                        onClick={() => setOpenMenubar(true)}
+                    >
+                        <BsList />
+                    </span>
+                </nav>
+
+
+
                 <nav
                     className={classNames({
                         [classes.ListContainer]: true,
-                        "col-5 my-0 py-0 d-lg-none text-start": true,
+                        [classes.OpenMenuList]: openMenubar,
+                        [classes.CloseMenuList]: !openMenubar,
+                        "col-5 my-0 py-0 d-lg-none": true,
                     })}
                 >
-                    <span
-                        className={classes.Icon}
-                        onClick={() => setOpenMenubar(!openMenubar)}
-                    >
-                        {openMenubar ? <BsList /> : <BsX />}
-                    </span>
-
                     <ul
                         className={classNames({
-                            [classes.OpenMenuList]: !openMenubar,
-                            [classes.CloseMenuList]: openMenubar,
-                            "my-3 text-start": true,
+                            [classes.sideMenuList]: true,
+                            "my-3 px-3": true,
                         })}
                     >
-                        <MenuItem link="/cart">
+                        <li className="text-end d-flex justify-content-end">
+                            <span
+                                className={classes.Icon}
+                                onClick={() => setOpenMenubar(false)}
+                            >
+                                <BsX />
+                            </span>
+                        </li>
+                        <MenuItem link="/cart" clicked={()=>setOpenMenubar(false)}>
                             <div
                                 className={classNames({
                                     [classes.Cart]: true,
@@ -109,14 +132,14 @@ const MenuList = () => {
                                 </span>
                             </div>
                         </MenuItem>
-                        <MenuItem link="/"> Home</MenuItem>
+                        <MenuItem link="/" clicked={()=>setOpenMenubar(false)}> Home</MenuItem>
 
-                        <MenuItem link="/products">
+                        <MenuItem link="/products" clicked={()=>setOpenMenubar(false)}>
                             Products
                             <span className=" text-danger pb-2"> *</span>
                         </MenuItem>
-                        <MenuItem link="/favorite"> Favorite</MenuItem>
-                        <MenuItem link="/about"> About</MenuItem>
+                        <MenuItem link="/favorite" clicked={()=>setOpenMenubar(false)}> Favorite</MenuItem>
+                        <MenuItem link="/about" clicked={()=>setOpenMenubar(false)}> About</MenuItem>
                     </ul>
                 </nav>
             </div>

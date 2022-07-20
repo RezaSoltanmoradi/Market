@@ -5,6 +5,7 @@
     margin-top: -35px;
     margin: -35 auto 0;
     padding-top: 0;
+    
     ::-webkit-scrollbar {
         width: 10px;
     }
@@ -27,15 +28,10 @@
 }
 .Form {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    flex-direction: culomn;
     border-radius: $radius-small;
-    margin: 10px auto;
-    padding-bottom: 5px;
-    z-index: 500 !important;
+    margin-top:8px;
     & form {
-        height: 40px;
+        height: 45px;
         background: $color-ligth;
         border-radius: $radius-small;
         padding: 5px;
@@ -46,7 +42,6 @@
             text-align: start;
             width: 100%;
             margin-top: 3px;
-            z-index: 500;
             font-size:$font-small;
         }
         & span {
@@ -76,19 +71,20 @@
 .FormActive {
     display: flex;
     height: 200px;
-    max-height: 200px;
-    overflow-y: scroll;
+    max-height: 500px;
+    overflow-y: hidden;
     animation: startBigger 0.1s linear;
     background-color: $color-white;
+     z-index: 500;
     @include boxShadow;
-
+  
     & .NavList {
         display: flex;
         justify-content: flex-start;
         align-items: center;
         text-align: start;
         position: absolute;
-        width:100;
+        width:100%;
         & ul {
             list-style: none;
             width: 100%;

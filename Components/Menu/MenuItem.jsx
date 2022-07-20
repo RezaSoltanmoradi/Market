@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
 import classNames from "classnames";
-const MenuItem = ({ children, link }) => {
+const MenuItem = ({ children, link, clicked }) => {
     const router = useRouter();
 
     const validPath =
@@ -15,11 +15,11 @@ const MenuItem = ({ children, link }) => {
                 className={classNames({
                     [classes.MenuItem]: true,
                     [classes.active]: router.asPath === link || validPath,
-                    "w-100 h-100 px-0 mx-auto": true,
+                    "w-100 px-0": true,
                 })}
             >
                 <Link href={link}>
-                    <a>{children}</a>
+                    <a onClick={clicked}>{children}</a>
                 </Link>
             </li>
         </Fragment>

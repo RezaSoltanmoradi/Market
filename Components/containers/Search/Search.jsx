@@ -13,15 +13,15 @@ const Search = () => {
     const [loading, setLoading] = useState(false);
     const [products, setProducts] = useState(null);
     const [searchTitle, setSearchTitle] = useState(null);
-
+    console.log({searchTitle})
     const router = useRouter();
-  
+
     const changeInputhander = (event) => {
         setValue(event.target.value);
+        setLoading(true);
+        
         setTimeout(() => {
-            if (value.trim().length >= 2) {
-                setLoading(true);
-
+            if (value.trim().length > 1) {
                 const fetchData = async () => {
                     const allProducts = await getAllProducts();
                     setProducts(allProducts);
@@ -37,17 +37,11 @@ const Search = () => {
                     });
                     setSearchTitle(searchTitle);
                 };
-
                 fetchData()
                     .then(() => {
                         setLoading(false);
                     })
                     .catch((error) => console.log({ error }));
-            }
-            if (value.trim().length < 2) {
-                setLoading(false);
-                setProducts(null)
-                return;
             }
         }, 1000);
     };
@@ -58,7 +52,6 @@ const Search = () => {
         setLoading(false);
         router.push("/search");
     };
-    console.log({ showModal });
     return (
         <Fragment>
             <Backdrop
@@ -71,16 +64,15 @@ const Search = () => {
             <div
                 onClick={() => {
                     inputRef.current.focus();
-                    setShowModal(true);
                 }}
                 className={classNames({
-                    "col-10 col-lg-8 mx-auto": true,
+                    "col-10 row col-lg-8 mx-auto": true,
                     [classes.container]: true,
                 })}
             >
                 <div
                     className={classNames({
-                        " w-100 mx-0 px-0 ": true,
+                        " w-100 mx-0 px-0 mx-auto": true,
                         [classes.Form]: true,
                         [classes.FormActive]: showModal,
                         [classes.formNoActive]: !showModal,
@@ -88,7 +80,8 @@ const Search = () => {
                 >
                     <form
                         onSubmit={fromSubmitionHandler}
-                        className="col-12  mx-auto d-flex justify-content-start sticky-top"
+                        className="col-12  mx-auto d-flex justify-content-start sticky-lg-top"
+                        onClick={() => setShowModal(true)}
                     >
                         <div className="col-2 text-center">
                             {loading ? (
@@ -128,17 +121,20 @@ const Search = () => {
                         )}
                     </form>
 
-                    <nav className={classNames({
-                        [classes.NavList]:true,
-                        'col-12 my-2 h-50 h-100':true,
-                    })}>
-                        <ul className="h-50">
+                    <nav
+                        className={classNames({
+                            [classes.NavList]: true,
+                            "col-12 my-2 h-100 h-100 pt-5": true,
+                        })}
+                    >
+                        <ul className="h-100 w-100 px-0 mx-0">
                             {showModal &&
                                 searchTitle?.map((item, index) => (
                                     <SearchItem
-                                        id={index + item}
-                                        key={index + item}
+                                        id={index + item.id}
+                                        key={index + item.id}
                                         link={`/product/${item.id}`}
+                                        image={item.image}
                                         inputValue={value}
                                         clicked={() => {
                                             setShowModal(false);
@@ -147,7 +143,7 @@ const Search = () => {
                                     >
                                         {item.title
                                             .toLowerCase()
-                                            .substring(0, 18)}
+                                            .substring(0, 25)}
                                     </SearchItem>
                                 ))}
                         </ul>

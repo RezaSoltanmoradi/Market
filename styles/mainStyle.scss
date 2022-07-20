@@ -37,7 +37,7 @@ $redius-large: 15px;
 }
 @mixin center {
     text-align: center;
-    margin: auto;
+    margin:0 auto;
 }
 @mixin moveTop {
     transition: all 0.3s linear;

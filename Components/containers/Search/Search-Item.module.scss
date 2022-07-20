@@ -1,15 +1,27 @@
-@import '../../../styles/mainStyle';
-.SearchItem{
-    margin:.5rem 0;
-& a{
-    text-decoration: none;
-    color:$color-orange;
-    font-size:$font-small;
+@import "../../../styles/mainStyle";
+.SearchItem {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1rem;
 
-    & span{
-        color: red;
-        font-weight: bold;
-        background-color:red;
+    & a {
+        text-decoration: none;
+        color: $color-dark;
+        font-size: $font-small;
+        font-weight: 600;
+
+        &:hover {
+            color: $color-orange;
+            font-weight: 700;
+        }
     }
 }
+@media screen and (max-width: 576px) {
+    .SearchItem {
+        & a {
+            font-size: 14px;
+        }
+    }
 }

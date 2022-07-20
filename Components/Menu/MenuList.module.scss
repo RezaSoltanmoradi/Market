@@ -1,65 +1,74 @@
 @import "../../styles/mainStyle.scss";
 .MenuList {
     margin: 1rem 0;
-    display:flex;
+    display: flex;
     justify-content: flex-start;
-    align-items:center;
+    align-items: center;
     text-decoration: none;
     list-style: none;
     padding: 0.3rem;
-    z-index: 200!important;
 }
-
 .ListContainer {
     position: fixed;
-    border-radius: $radius-med;
-    top: 10px;
-    overflow: hidden;
-    z-index: 200!important;
-   
-    & .Icon {
-        color: $color-orange;
-        font-size: 30px;
-        padding: 1rem;
-        cursor: pointer;
-
-        font-weight: bold;
-        &:hover {
-            color: $color-orange;
-        }
-    }
-    & .OpenMenuList {
+    margin-left: 0;
+    padding-left: 0;
+    left: 0;
+    top:50px;
+    z-index: 200 !important;
+    max-width: 250px;
+    min-width: 200px;
+    transition: transform 0.3s ease-out;
+    height:500px;
+    
+    & .sideMenuList {
         position: relative;
-        left: 0px;
+        height:500px;
+        z-index: 200 !important;
+        margin-left: 0;
+        padding-left: 0;
         list-style: none;
         transition: all 0.5s linear;
-        z-index: 100;
         background: decrease-color($color-ligth, 20%);
         border-radius: 0 $radius-med $radius-med 0;
         opacity: 1;
+        animation: openMenu 0.5s linear;
+        & li {
+            height: 50px;
+        }
     }
-    & .CloseMenuList {
-        position: relative;
-        list-style: none;
-        left: -200px;
-        opacity: 0;
-        transition: all 0.5s linear;
+   
+}
+.Icon {   
+    color: $color-orange;
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition:all .2s linear;
+    &:hover {
+        color: $color-dark;
     }
+}
+.OpenMenuList{
+    transform: translateX(0);
+}
+.CloseMenuList{
+    transform: translateX(-100%);
+
 }
 @keyframes openMenu {
     from {
-        display: none;
+        left: -200px;
     }
     to {
-        @include columnFlex;
+        left:0;
     }
 }
 @keyframes closeMenu {
     from {
-        @include columnFlex;
+        left: 0;
     }
     to {
-        display: none;
+        left:-200px;
     }
 }
 .Cart {
