@@ -12,7 +12,7 @@ const FilterByCategory = ({ categories, filterByCategory }) => {
                 loadedCategories.push({
                     id: key,
                     category: categories[key],
-                    checked: true,
+                    checked: false,
                 });
             }
         }
