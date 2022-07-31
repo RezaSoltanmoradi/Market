@@ -5,9 +5,9 @@
     margin-top: -35px;
     margin: -35 auto 0;
     padding-top: 0;
-    
+
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 7px;
     }
     /* Track */
     ::-webkit-scrollbar-track {
@@ -29,12 +29,12 @@
 .Form {
     position: absolute;
     border-radius: $radius-small;
-    margin-top:8px;
+    margin-top: 8px;
     & form {
         height: 45px;
-        background: $color-ligth;
         border-radius: $radius-small;
         padding: 5px;
+        z-index: 550;
         & input {
             border: none;
             outline: none;
@@ -42,7 +42,7 @@
             text-align: start;
             width: 100%;
             margin-top: 3px;
-            font-size:$font-small;
+            font-size: $font-small;
         }
         & span {
             font-size: 20px;
@@ -62,6 +62,7 @@
         }
     }
 }
+
 .formNoActive {
     background-color: $color-ligth;
     & .NavList {
@@ -70,25 +71,31 @@
 }
 .FormActive {
     display: flex;
+    flex-direction: column;
     height: 200px;
     max-height: 500px;
-    overflow-y: hidden;
     animation: startBigger 0.1s linear;
     background-color: $color-white;
-     z-index: 500;
+    z-index: 500;
     @include boxShadow;
-  
     & .NavList {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
         text-align: start;
         position: absolute;
-        width:100%;
+        top: 4rem;
+        height: auto;
+        max-height: 130px;
+        overflow-y: scroll;
         & ul {
             list-style: none;
             width: 100%;
         }
+    }
+    & .searchBorder {
+        width: 80%;
+        margin: 0 auto;
+        height: 1px;
+        background-color: $color-success;
+        z-index: 500;
     }
 }
 @keyframes startAnimate {
@@ -114,5 +121,33 @@
         margin-top: 0;
         margin: 0 auto 0;
         padding-top: 0;
+    }
+}
+@media screen and (max-width: 576px) {
+    .FormActive {
+        position: fixed;
+        top: 50px;
+        left: 10%;
+        height: 400px;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        max-height: 500px;
+        animation: startBigger 0.1s linear;
+        background-color: $color-white;
+        z-index: 500 !important;
+        @include boxShadow;
+
+        & .NavList {
+            text-align: start;
+            position: absolute;
+            max-height: 320px;
+            width: 100%;
+
+            & ul {
+                list-style: none;
+                width: 100%;
+            }
+        }
     }
 }

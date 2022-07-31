@@ -91,23 +91,23 @@
         font-weight: 650;
     }
 }
-.mainStar {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    & h4 {
-        font-size: $font-small;
-        font-weight: bold;
-        text-align: center;
-        margin-right: 5px;
+    .mainStar {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        & h4 {
+            font-size: $font-small;
+            font-weight: bold;
+            text-align: center;
+            margin-right: 5px;
+        }
+        & .starIcon {
+            color: decrease-color($color-warning, 100%);
+            font-size: $font-med;
+            margin-top: -7px;
+            margin-right: 4px;
+            @include flexible;
+            cursor: pointer;
+            @include moveTop;
+        }
     }
-    & .starIcon {
-        color: decrease-color($color-warning, 100%);
-        font-size: $font-med;
-        margin-top: -7px;
-        margin-right: 4px;
-        @include flexible;
-        cursor: pointer;
-        @include moveTop;
-    }
-}

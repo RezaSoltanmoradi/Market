@@ -11,46 +11,49 @@ const Search = () => {
     const inputRef = useRef(null);
     const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [products, setProducts] = useState(null);
-    const [searchTitle, setSearchTitle] = useState(null);
-    console.log({searchTitle})
+    const [filterProducts, setFilterProducts] = useState(null);
     const router = useRouter();
-
+    
     const changeInputhander = (event) => {
         setValue(event.target.value);
         setLoading(true);
-        
-        setTimeout(() => {
-            if (value.trim().length > 1) {
-                const fetchData = async () => {
-                    const allProducts = await getAllProducts();
-                    setProducts(allProducts);
+        const enteredValue=inputRef?.current.value;
 
-                    const searchTitle = products?.filter((item) => {
+        if(enteredValue.trim().length ===0){
+            setLoading(false);
+            setFilterProducts(null);
+        }
+        if (enteredValue.trim().length >0) {
+            setTimeout(() => {
+            const fetchData = async () => {
+                    const products = await getAllProducts();
+                    const foundProducts = products?.filter((item) => {
                         const filterTitle = item.title
+                        .toLowerCase()
+                            .includes(enteredValue.toLowerCase());
+                            const filterDescription = item.description
                             .toLowerCase()
-                            .includes(value.toLowerCase());
-                        const filterDescription = item.description
-                            .toLowerCase()
-                            .includes(value.toLowerCase());
-                        return filterDescription + filterTitle;
+                            .includes(enteredValue.toLowerCase());
+                            return filterDescription + filterTitle;
                     });
-                    setSearchTitle(searchTitle);
+                    setFilterProducts(foundProducts);
                 };
                 fetchData()
                     .then(() => {
                         setLoading(false);
                     })
                     .catch((error) => console.log({ error }));
-            }
-        }, 1000);
+            }, 500)
+        };
     };
 
     const fromSubmitionHandler = (event) => {
         event.preventDefault();
-        setShowModal(false);
-        setLoading(false);
-        router.push("/search");
+        if(value.trim().length>0){
+            setShowModal(false);
+            setLoading(false);
+            router.push("/search");
+        }
     };
     return (
         <Fragment>
@@ -71,8 +74,11 @@ const Search = () => {
                 })}
             >
                 <div
+                  onClick={() => {
+                    inputRef.current.focus();
+                }}
                     className={classNames({
-                        " w-100 mx-0 px-0 mx-auto": true,
+                        " mx-0 px-0 mx-auto": true,
                         [classes.Form]: true,
                         [classes.FormActive]: showModal,
                         [classes.formNoActive]: !showModal,
@@ -120,16 +126,16 @@ const Search = () => {
                             </div>
                         )}
                     </form>
-
+                   <div className={classes.searchBorder}></div>
                     <nav
                         className={classNames({
                             [classes.NavList]: true,
-                            "col-12 my-2 h-100 h-100 pt-5": true,
+                            "col-12": true,
                         })}
                     >
                         <ul className="h-100 w-100 px-0 mx-0">
                             {showModal &&
-                                searchTitle?.map((item, index) => (
+                                filterProducts?.map((item, index) => (
                                     <SearchItem
                                         id={index + item.id}
                                         key={index + item.id}

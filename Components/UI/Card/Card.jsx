@@ -3,7 +3,7 @@ import Image from "next/image";
 import classNames from "classnames";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { BsHeartFill, BsHeart, BsStar, BsStarFill } from "react-icons/bs";
-
+import { useRouter } from "next/router";
 const Card = ({
     title,
     price,
@@ -16,9 +16,12 @@ const Card = ({
     onHeart,
     id,
 }) => {
+    const router = useRouter();
+
     return (
         <SkeletonTheme baseColor="#ededed" highlightColor="white">
             <div
+                onClick={() => router.push(`/product/${id}`)}
                 className={classNames({
                     [classes.container]: true,
                     "  mt-4": true,

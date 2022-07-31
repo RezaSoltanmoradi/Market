@@ -1,0 +1,155 @@
+@import "../../styles/mainStyle.scss";
+.imageContainer {
+    position: relative !important;
+    & .HeartFill {
+        width: 30px;
+        height: 30px;
+        color: $color-danger;
+        z-index: 40;
+        overflow: hidden;
+        @include flexible;
+        cursor: pointer;
+        @include moveTop;
+        & span {
+            color: $color-danger;
+            font-size: 20px;
+            z-index: 50;
+            @include center;
+        }
+    }
+    & .Heart {
+        width: 30px;
+        height: 30px;
+        color: $color-danger;
+        background-color: $color-white;
+        z-index: 40;
+        overflow: hidden;
+        @include flexible;
+        cursor: pointer;
+        @include moveTop;
+        & span {
+            color: $color-danger;
+            font-size: 20px;
+            z-index: 50;
+            @include center;
+        }   
+    }
+    & .Image {
+        text-align: center;
+        position:relative;
+       @include flexible;
+        width: 400px;
+        height: 400px;
+    }
+    & .Border {
+        width: 2px;
+        height: 90vh;
+        background-color: $color-dark;
+        opacity: 0.5;
+        position: absolute;
+        right: 0;
+        top: 10px;
+    }
+}
+.goBack {
+    & span {
+        color: $color-orange;
+        font-size: $font-med;
+        width: 50px;
+        font-weight: bold;
+    }
+    & button {
+        background-color: transparent;
+        font-size: large;
+        font-weight: 600;
+        &:hover {
+            color: $color-orange;
+        }
+    }
+}
+.detailContainer {
+    
+    & ul {
+        clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
+        background-color: $color-dark;
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem;
+        & li {
+            padding: 0 20px;
+            margin-left: 10px;
+            font-family: sans-serif;
+            color: $color-warning;
+            font-weight: bold;
+            font-size: $font-xsmall;
+            text-decoration: none;
+        }
+        & span {
+            color: $color-danger;
+            font-size: $font-small;
+            padding-left: 0.5rem;
+        }
+        & .exactCategory {
+            padding: 0 5px;
+            margin-left: 20px;
+            font-family: sans-serif;
+            color: $color-white;
+            font-weight: bold;
+            font-size: $font-xsmall;
+            opacity: 0.8;
+        }
+    }
+    & .mainStar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        & h4 {
+            font-size: $font-small;
+            font-weight: bold;
+            text-align: center;
+            margin-right: 5px;
+        }
+        & .starIcon {
+            color: decrease-color($color-warning, 100%);
+            font-size: $font-med;
+            margin-top: -7px;
+            margin-right: 4px;
+            cursor: pointer;
+            @include moveTop;
+        }
+    }
+}
+@media screen and (max-width: 576px) {
+    .Container {
+        height: 70vh !important;
+    }
+    .Border {
+        display: none;
+    }
+    .imageContainer{
+        & .Image {
+            width: 200px;
+            height: 200px;
+        }
+    }
+    .detailContainer {
+        & ul {
+            & li {
+                padding: 0 10px;
+                margin-left: 5px;
+                font-family: sans-serif;
+                font-size: $font-xsmall;
+            }
+            & span {
+                font-size: $font-small;
+                padding-left: 0.5rem;
+            }
+            & .exactCategory {
+                margin-left: 10px;
+                font-size: $font-xsmall;
+            }
+        }
+    }
+}
