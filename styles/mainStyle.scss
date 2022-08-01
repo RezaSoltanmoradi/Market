@@ -16,8 +16,8 @@ $radius-small: 5px;
 $radius-med: 10px;
 $redius-large: 15px;
 
-@mixin boxShadow{
- box-shadow: 4px 4px 10px #adacac;
+@mixin boxShadow {
+    box-shadow: 4px 4px 10px #adacac;
 }
 @mixin flexible {
     display: flex;
@@ -37,7 +37,7 @@ $redius-large: 15px;
 }
 @mixin center {
     text-align: center;
-    margin:0 auto;
+    margin: 0 auto;
 }
 @mixin moveTop {
     transition: all 0.3s linear;
@@ -45,16 +45,49 @@ $redius-large: 15px;
         transform: translateY(-5px);
     }
 }
-@mixin animate{
-    animation: rotation .5s  linear;
+@mixin animate {
+    animation: rotation 0.5s linear;
     @keyframes rotation {
         from {
-          transform: rotate(0deg);
+            transform: rotate(0deg);
         }
-        to {    
-          transform: rotate(380deg);
+        to {
+            transform: rotate(380deg);
         }
-      }
+    }
+}
+@mixin HeartFill {
+    width: 30px;
+    height: 30px;
+    color: $color-danger;
+    z-index: 40;
+    overflow: hidden;
+    @include flexible;
+    cursor: pointer;
+    @include moveTop;
+    & span {
+        color: $color-danger;
+        font-size: 20px;
+        z-index: 50;
+        @include center;
+    }
+}
+@mixin Heart {
+    width: 30px;
+    height: 30px;
+    color: $color-danger;
+    background-color: $color-white;
+    z-index: 40;
+    overflow: hidden;
+    @include flexible;
+    cursor: pointer;
+    @include moveTop;
+    & span {
+        color: $color-danger;
+        font-size: 20px;
+        z-index: 50;
+        @include center;
+    }
 }
 @function increase-color($color, $amount: 100%) {
     $inverse: change-color($color, $hue: hue($color) + 30);

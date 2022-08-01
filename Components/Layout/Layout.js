@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 const Layout = ({ children }) => {
     return (
@@ -8,6 +9,7 @@ const Layout = ({ children }) => {
                 <div className="col-12">
                     <main>{children}</main>
                 </div>
+                <Footer />
             </div>
         </Fragment>
     );

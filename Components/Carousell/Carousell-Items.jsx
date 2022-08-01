@@ -1,10 +1,11 @@
 import classes from "./Carousell-Items.module.scss";
 import Image from "next/image";
 import classNames from "classnames";
-import { BsFillSuitHeartFill } from "react-icons/bs";
+import { BsHeartFill, BsHeart } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { useState } from "react";
 const CarrousellItems = ({
     products,
     count,
@@ -16,6 +17,7 @@ const CarrousellItems = ({
     const { title, description, rating, price, image } = products
         ? products[count]
         : {};
+        const [heart, setHeart]= useState(false);
     return (
         <SkeletonTheme baseColor="#ededed" highlightColor="white">
             <div
@@ -30,15 +32,23 @@ const CarrousellItems = ({
                         "mx-auto row col-12 pt-2  ": true,
                     })}
                 >
-                    <div
+                     <div
+                        onClick={() => setHeart(!heart)}
                         className={classNames({
-                            [classes.mainHeart]: true,
-                            "offset-10 offset-md-11": true,
+                            [classes.HeartFill]: heart,
+                            [classes.Heart]: !heart,
+                            "offset-10": true,
                         })}
                     >
-                        <span className={classes.heart}>
-                            <BsFillSuitHeartFill />
-                        </span>
+                        {heart ? (
+                            <span>
+                                <BsHeartFill />
+                            </span>
+                        ) : (
+                            <span>
+                                <BsHeart />
+                            </span>
+                        )}
                     </div>
                     <div className="col-12 row">
                         <div className="col-2  d-flex justify-content-center align-items-center">

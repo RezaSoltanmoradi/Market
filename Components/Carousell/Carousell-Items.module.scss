@@ -38,30 +38,12 @@
         transform: scaleY(1.2);
     }
 }
-
-.mainHeart {
-    width: 25px;
-    height: 25px;
-    border: 2px solid $color-danger;
-    background-color: $color-danger;
-    border-radius: 50%;
-    z-index: 40;
-    overflow: hidden;
-    @include flexible;
-    cursor: pointer;
-    @include moveTop;
-    margin-top: 10px;
+.HeartFill{
+    @include HeartFill;
 }
-.heart {
-    color: $color-white;
-    font-size: 13px;
-    z-index: 50;
-    padding-bottom: 5px;
-    padding-top: 0px;
-    margin-top: 0px;
-    @include center;
+.Heart{
+    @include Heart;
 }
-
 .title {
     & h4 {
         font-size: $font-med;

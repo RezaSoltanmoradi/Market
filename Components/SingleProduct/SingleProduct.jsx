@@ -6,17 +6,26 @@ import {
     BsStar,
     BsStarFill,
     BsCaretRightFill,
+    BsArrowLeft,
 } from "react-icons/bs";
 import Image from "next/image";
-import { BsArrowLeft } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import ProductQouantity from "../containers/ProductQuantity/ProductQuantity";
 const SingleProduct = ({ product }) => {
     const { title, description, price, rating, category, image } = product;
     const router = useRouter();
     const rate = Math.round(Number(rating.rate));
-
     const [heart, setHeart] = useState(false);
+
+    const addToCartHandler = (productDetail) => {
+        console.log({ productDetail });
+        console.log("this product added to cart successfuly");
+    };
+    const addToFavoriteHandler = (productDetail) => {
+        console.log({ productDetail });
+        console.log("this product added to favorite successfuly");
+    };
     return (
         <main className="col-12 row mx-0 px-0">
             <div
@@ -26,40 +35,43 @@ const SingleProduct = ({ product }) => {
                 })}
             >
                 <div className="col-12 d-flex justify-content-between flex-column">
-                    <div
-                        className={classNames({
-                            [classes.goBack]: true,
-                            "col-4 offset-1 mt-2": true,
-                        })}
-                    >
-                        <span>
-                            <BsArrowLeft />
-                        </span>
-                        <button
-                            onClick={() => router.back()}
-                            style={{ border: "none" }}
+                    <div className="mt-5 col-12 row text-center">
+                        <div
+                            className={classNames({
+                                [classes.goBack]: true,
+                                "col-6  ": true,
+                            })}
                         >
-                            Go Back
-                        </button>
-                    </div>
-                    <div
-                        onClick={() => setHeart(!heart)}
-                        className={classNames({
-                            [classes.HeartFill]: heart,
-                            [classes.Heart]: !heart,
-                            "offset-10": true,
-                        })}
-                    >
-                        {heart ? (
                             <span>
-                                <BsHeartFill />
+                                <BsArrowLeft />
                             </span>
-                        ) : (
-                            <span>
-                                <BsHeart />
-                            </span>
-                        )}
+                            <button
+                                onClick={() => router.back()}
+                                style={{ border: "none" }}
+                            >
+                                Go Back
+                            </button>
+                        </div>
+                        <div
+                            onClick={() => setHeart(!heart)}
+                            className={classNames({
+                                [classes.HeartFill]: heart,
+                                [classes.Heart]: !heart,
+                                "col-6 offset-3 text-end": true,
+                            })}
+                        >
+                            {heart ? (
+                                <span>
+                                    <BsHeartFill />
+                                </span>
+                            ) : (
+                                <span>
+                                    <BsHeart />
+                                </span>
+                            )}
+                        </div>
                     </div>
+
                     <div className="col-12 d-flex justify-content-center mt-5">
                         <div className={classes.Image}>
                             <Image
@@ -133,9 +145,10 @@ const SingleProduct = ({ product }) => {
                         </div>
                     </div>
                     <h3 className="mt-3">${price}</h3>
-                    <p className="mt-3">
+                    <p className="my-3">
                         {description.substring(0, 200).toLowerCase()}
                     </p>
+                    <ProductQouantity addToCart={addToCartHandler} addToFavorite={addToFavoriteHandler} />
                 </main>
             </div>
         </main>

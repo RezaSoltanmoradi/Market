@@ -1,20 +1,22 @@
 @import "../../../styles/mainStyle.scss";
-.btn {
+.Button {
+    display: flex;
+    justify-content: center;
+    align-items:center;
     border-radius: $radius-med;
-    color: $color-orange;
-    background-color: $color-ligth;
-    padding: 0.2rem 0.3rem;
+     padding: 0.7rem 0.3rem!important;
     font-weight: bold;
     font-size: $font-med;
-    font-family: Rezvan;
-    font-weight: bold;
-     border: none;
+    // font-family: Rezvan;
+    font-weight: 600;
+    border: none;
     @include center;
-    transition: all .2s linear;
-    &:hover , &:active , &:focus {
-        color: decrease-color($color-warning, 100);
-        background-color: $color-success;
-        border-radius: 0;
-
+    transition: all 0.2s linear;
+    &:hover,
+    &:active,
+    &:focus {
+        color: $color-danger!important;
+        background-color: $color-white!important;
+        border-radius: 0 !important;
     }
 }
