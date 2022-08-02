@@ -27,7 +27,10 @@ const SingleProduct = ({ product }) => {
         console.log("this product added to favorite successfuly");
     };
     return (
-        <main className="col-12 row mx-0 px-0">
+        <main className={classNames({
+            'col-12 row mx-0 px-0':true,
+            [classes.SingleProduct]:true,
+        })}>
             <div
                 className={classNames({
                     "col-12 col-lg-6": true,

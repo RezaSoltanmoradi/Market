@@ -65,8 +65,9 @@ const ProductsPage = () => {
     }
 
     return (
-        <div className=" row mx-auto">
-            <div className="col-12 col-lg-3 pt-4 mx-0 px-0 h-100">
+       <div>
+         <div className=" row mx-auto mb-5">
+            <div className="col-12 col-lg-3 pt-4 mx-0 px-0 ">
                 <Sidebar
                     categories={categories}
                     filterByPrice={handleFilterByPrice}
@@ -75,6 +76,8 @@ const ProductsPage = () => {
             </div>
             <div className="col-12 col-lg-8">{finallProducts}</div>
         </div>
+    
+       </div>
     );
 };
 // export const getStaticProps = async () => {

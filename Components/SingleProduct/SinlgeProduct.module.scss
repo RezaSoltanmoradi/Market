@@ -1,16 +1,22 @@
 @import "../../styles/mainStyle.scss";
+.SingleProduct {
+    position: relative !important;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+}
 .imageContainer {
     position: relative !important;
     & .HeartFill {
-      @include HeartFill;
+        @include HeartFill;
     }
     & .Heart {
-      @include Heart;
+        @include Heart;
     }
     & .Image {
         text-align: center;
-        position:relative;
-       @include flexible;
+        position: relative;
+        @include flexible;
         width: 350px;
         height: 350px;
     }
@@ -33,8 +39,8 @@
     }
     & button {
         background-color: transparent;
-        border:none;
-        outline:none;
+        border: none;
+        outline: none;
         font-size: large;
         font-weight: 600;
         &:hover {
@@ -43,7 +49,6 @@
     }
 }
 .detailContainer {
-    
     & ul {
         clip-path: polygon(5% 0, 100% 0%, 95% 100%, 0% 100%);
         background-color: $color-ligth;
@@ -103,7 +108,7 @@
     .Border {
         display: none;
     }
-    .imageContainer{
+    .imageContainer {
         & .Image {
             width: 200px;
             height: 200px;

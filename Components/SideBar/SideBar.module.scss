@@ -1,16 +1,16 @@
 .Sidebar {
-    position: fixed;
+    position: sticky!important;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    height: 100vh;
-    width: 22%;
-    max-height: 100vh;
+    top:5rem;
+    width: 100%;
+    max-height: 80vh;
     & .sidebarBorder {
         position: absolute;
-        right: 0;
-        top: 0;
-        height: 100vh;
+        right: 20px;
+        top: -15px;
+        height: 90vh;
         border-right: black 2px solid;
         opacity: 0.5;
     }

@@ -5,7 +5,7 @@ import FilterByCategory from "../containers/FilterByCategory/FilterByCategory";
 import classes from "./SideBar.module.scss";
 const Sidebar = ({ products, categories, filterByPrice, filterByCategory }) => {
     return (
-        <div className="col-12">
+        <div className="col-12 py-0 my-0 h-100">
             <main
                 className={classNames({
                     [classes.Sidebar]: true,
