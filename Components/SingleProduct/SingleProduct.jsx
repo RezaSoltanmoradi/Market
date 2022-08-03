@@ -1,8 +1,6 @@
 import classes from "./SinlgeProduct.module.scss";
 import classNames from "classnames";
 import {
-    BsHeartFill,
-    BsHeart,
     BsStar,
     BsStarFill,
     BsCaretRightFill,
@@ -10,13 +8,12 @@ import {
 } from "react-icons/bs";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import ProductQouantity from "../containers/ProductQuantity/ProductQuantity";
+
 const SingleProduct = ({ product }) => {
     const { title, description, price, rating, category, image } = product;
     const router = useRouter();
     const rate = Math.round(Number(rating.rate));
-    const [heart, setHeart] = useState(false);
 
     const addToCartHandler = (productDetail) => {
         console.log({ productDetail });
@@ -27,10 +24,12 @@ const SingleProduct = ({ product }) => {
         console.log("this product added to favorite successfuly");
     };
     return (
-        <main className={classNames({
-            'col-12 row mx-0 px-0':true,
-            [classes.SingleProduct]:true,
-        })}>
+        <main
+            className={classNames({
+                "col-12 row mx-0 px-0": true,
+                [classes.SingleProduct]: true,
+            })}
+        >
             <div
                 className={classNames({
                     "col-12 col-lg-6": true,
@@ -54,24 +53,6 @@ const SingleProduct = ({ product }) => {
                             >
                                 Go Back
                             </button>
-                        </div>
-                        <div
-                            onClick={() => setHeart(!heart)}
-                            className={classNames({
-                                [classes.HeartFill]: heart,
-                                [classes.Heart]: !heart,
-                                "col-6 offset-3 text-end": true,
-                            })}
-                        >
-                            {heart ? (
-                                <span>
-                                    <BsHeartFill />
-                                </span>
-                            ) : (
-                                <span>
-                                    <BsHeart />
-                                </span>
-                            )}
                         </div>
                     </div>
 
@@ -151,7 +132,10 @@ const SingleProduct = ({ product }) => {
                     <p className="my-3">
                         {description.substring(0, 200).toLowerCase()}
                     </p>
-                    <ProductQouantity addToCart={addToCartHandler} addToFavorite={addToFavoriteHandler} />
+                    <ProductQouantity
+                        addToCart={addToCartHandler}
+                        addToFavorite={addToFavoriteHandler}
+                    />
                 </main>
             </div>
         </main>

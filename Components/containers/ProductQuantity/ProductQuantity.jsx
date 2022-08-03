@@ -2,25 +2,61 @@ import QuantityCard from "../../UI/QuantityCard/QuantityCard";
 import classes from "./ProductQuantity.module.scss";
 import {
     BsCheckLg,
-    BsChevronDown,
     BsCart3,
     BsHeart,
     BsHeartFill,
 } from "react-icons/bs";
 import { useState, useEffect, Fragment } from "react";
+import Select from "react-select";
+
 import Button from "../../UI/Button/Button";
 
-const ProductQouantity = ({ addToCart , addToFavorite}) => {
+const ProductQouantity = ({ addToCart, addToFavorite }) => {
     const [loading, setLoading] = useState(true);
     const [quantity, setQuantity] = useState(0);
     const [color, setColor] = useState("light");
     const [size, setSize] = useState("small");
     const [heart, setHeart] = useState(false);
-
+    const options = [
+        { value: "small", label: "small" },
+        { value: "medium", label: "medium" },
+        { value: "large", label: "large" },
+    ];
+    const selectStyle = {
+        menu: (provided, state) => ({
+            ...provided,
+            width: state.selectProps.width,
+            borderBottom: "1px dotted pink",
+            color: state.selectProps.menuColor,
+            display: "flex",
+            marginTop:'-25px',
+            padding:'0',
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            borderBottom: "1px dotted pink",
+            color: state.isSelected ? "white" : "#1b998b",
+            background: state.isSelected ? "#1b998b" : "white",
+            cursor: "pointer",
+            width: "150px",
+            margin: "0",
+        }),
+        control: () => ({
+            width: 150,
+            marginTop:'30px',
+            padding:'0'
+        }),
+        singleValue: (provided, state) => {
+            const opacity = state.isDisabled ? 0.5 : 1;
+            const transition = "opacity 300ms";
+            return { ...provided, opacity, transition };
+        },
+    };
+    console.log(size);
     const addToCartChandler = () => {
         addToCart({ quantity, color, size });
     };
-    const addToFavoriteHandler= () => {
+    const addToFavoriteHandler = () => {
         addToFavorite({ quantity, color, size });
         setHeart(!heart);
     };
@@ -52,23 +88,12 @@ const ProductQouantity = ({ addToCart , addToFavorite}) => {
                     </div>
                 </QuantityCard>
                 <QuantityCard filterName="Size">
-                    <h5>{size}</h5>
-                    <select onChange={(e) => setSize(e.target.value)} value="">
-                        <option value={""} key={0}>
-                            <BsChevronDown />
-                        </option>
-                        <option value="small" key={1}>
-                            small
-                        </option>
-                        <option value="medium" key={2}>
-                            {" "}
-                            medium
-                        </option>
-                        <option value="large" key={3}>
-                            {" "}
-                            large{" "}
-                        </option>
-                    </select>
+                    <Select
+                        options={options}
+                        defaultValue={size}
+                        styles={selectStyle}
+                        onChange={(option) => setSize(option.value)}
+                    />
                 </QuantityCard>
                 <QuantityCard filterName="Quantity">
                     <button
@@ -95,7 +120,11 @@ const ProductQouantity = ({ addToCart , addToFavorite}) => {
                     </span>
                     <p>Add to Cart</p>
                 </Button>
-                <Button clicked={addToFavoriteHandler} bgColor="white" color="black">
+                <Button
+                    clicked={addToFavoriteHandler}
+                    bgColor="white"
+                    color="black"
+                >
                     <span>{heart ? <BsHeartFill /> : <BsHeart />}</span>
                     <p>Save to Favorite</p>
                 </Button>

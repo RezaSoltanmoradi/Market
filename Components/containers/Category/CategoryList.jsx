@@ -1,12 +1,43 @@
 import CategoryItem from "./CategoryItem";
 import classes from "./CategoryList.module.scss";
+import classNames from "classnames";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { ConvertTitleToSlug } from "./../../../helper/utils";
-const Categories = ({ categories }) => {
+import { BsChevronDown, BsChevronUp, BsSliders } from "react-icons/bs";
+import { useState } from "react";
+
+const Categories = ({ categories, filterMethod }) => {
+    const {showFilter, showFilterHandler}= filterMethod;
+    const [showCategory, setShowCategory] = useState(false);
     return (
         <nav className={classes.Category}>
-            <h4 className="mx-5"> Category</h4>
-            <ul>
+            <h4
+                className="mx-5 "
+                onClick={() => {
+                    showFilterHandler(!showFilter);
+                    setShowCategory(false);
+                }}
+            >
+                {" "}
+                Filters <BsSliders />
+            </h4>
+            {showFilter && (
+                <div className="mx-5">
+                    <h4
+                        className="mx-3 mt-3 col-4"
+                        onClick={() => setShowCategory(!showCategory)}
+                    >
+                        Category{" "}
+                        {showCategory ? <BsChevronUp /> : <BsChevronDown />}
+                    </h4>
+                </div>
+            )}
+            <ul
+                className={classNames({
+                    [classes.showCategory]: showCategory,
+                    [classes.hideCategory]: !showCategory,
+                })}
+            >
                 {!categories && (
                     <SkeletonTheme baseColor="#ededed" highlightColor="white">
                         <div className="mt-2">

@@ -2,17 +2,11 @@
 .SingleProduct {
     position: relative !important;
     width: 100%;
-    height: 100vh;
     min-height: 100vh;
 }
 .imageContainer {
     position: relative !important;
-    & .HeartFill {
-        @include HeartFill;
-    }
-    & .Heart {
-        @include Heart;
-    }
+   
     & .Image {
         text-align: center;
         position: relative;
