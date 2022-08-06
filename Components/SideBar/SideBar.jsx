@@ -12,7 +12,7 @@ const Sidebar = ({ products, categories, filterByPrice, filterByCategory }) => {
         showFilter: showFilter,
     };
     return (
-        <div className="col-12 py-0 my-0 h-100">
+        <div className="col-12 py-0 my-0 h-100 d-lg-flex d-none">
             <main
                 className={classNames({
                     [classes.Sidebar]: true,

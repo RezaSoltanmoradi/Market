@@ -1,11 +1,6 @@
 import QuantityCard from "../../UI/QuantityCard/QuantityCard";
 import classes from "./ProductQuantity.module.scss";
-import {
-    BsCheckLg,
-    BsCart3,
-    BsHeart,
-    BsHeartFill,
-} from "react-icons/bs";
+import { BsCheckLg, BsCart3, BsHeart, BsHeartFill } from "react-icons/bs";
 import { useState, useEffect, Fragment } from "react";
 import Select from "react-select";
 
@@ -22,36 +17,6 @@ const ProductQouantity = ({ addToCart, addToFavorite }) => {
         { value: "medium", label: "medium" },
         { value: "large", label: "large" },
     ];
-    const selectStyle = {
-        menu: (provided, state) => ({
-            ...provided,
-            width: state.selectProps.width,
-            borderBottom: "1px dotted pink",
-            color: state.selectProps.menuColor,
-            display: "flex",
-            marginTop:'-25px',
-            padding:'0',
-        }),
-        option: (provided, state) => ({
-            ...provided,
-            borderBottom: "1px dotted pink",
-            color: state.isSelected ? "white" : "#1b998b",
-            background: state.isSelected ? "#1b998b" : "white",
-            cursor: "pointer",
-            width: "150px",
-            margin: "0",
-        }),
-        control: () => ({
-            width: 150,
-            marginTop:'30px',
-            padding:'0'
-        }),
-        singleValue: (provided, state) => {
-            const opacity = state.isDisabled ? 0.5 : 1;
-            const transition = "opacity 300ms";
-            return { ...provided, opacity, transition };
-        },
-    };
     console.log(size);
     const addToCartChandler = () => {
         addToCart({ quantity, color, size });
@@ -87,11 +52,14 @@ const ProductQouantity = ({ addToCart, addToFavorite }) => {
                         {color === "danger" && <BsCheckLg />}
                     </div>
                 </QuantityCard>
-                <QuantityCard filterName="Size">
+                <QuantityCard
+                    filterName="Size"
+                    style={{ position: "relative" }}
+                >
                     <Select
+                        className={classes.menubar}
                         options={options}
                         defaultValue={size}
-                        styles={selectStyle}
                         onChange={(option) => setSize(option.value)}
                     />
                 </QuantityCard>
