@@ -13,21 +13,11 @@ const Products = ({ products, cont }) => {
                 description: pro.description,
                 image: pro.image,
                 rate: pro.rating.rate,
-                star: false,
                 heart: false,
             }))
         );
     }, [products]);
 
-    const handleStarFill = (id) => {
-        const allProducts = [...newProducts];
-        const foundProductIndex = newProducts.findIndex(
-            (product) => product.id === id
-        );
-        allProducts[foundProductIndex].star =
-            !allProducts[foundProductIndex].star;
-        setNewProducts(allProducts);
-    };
     const handleHeartFill = (id) => {
         const allProducts = [...newProducts];
         const foundProductIndex = newProducts.findIndex(
@@ -49,8 +39,6 @@ const Products = ({ products, cont }) => {
                 description={product.description}
                 image={product.image}
                 rate={product.rate}
-                star={product.star}
-                onStar={handleStarFill}
                 heart={product.heart}
                 onHeart={handleHeartFill}
             />
@@ -65,8 +53,6 @@ const Products = ({ products, cont }) => {
                 description={product.description}
                 image={product.image}
                 rate={product.rate}
-                star={product.star}
-                onStar={handleStarFill}
                 heart={product.heart}
                 onHeart={handleHeartFill}
             />

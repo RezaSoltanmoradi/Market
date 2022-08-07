@@ -7,8 +7,6 @@ const Product = ({
     rate,
     description,
     image,
-    star,
-    onStar,
     heart,
     onHeart,
 }) => {
@@ -21,8 +19,6 @@ const Product = ({
                 rate={rate}
                 description={description}
                 image={image}
-                star={star}
-                onStar={onStar}
                 heart={heart}
                 onHeart={onHeart}
             />

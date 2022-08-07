@@ -17,7 +17,9 @@ const CategoryItem = ({ children, link, id }) => {
                 <Link href={link}>
                     <a>{children}</a>
                 </Link>
+
             </li>
+            <hr className="my-0 py-0 text-info col-10 text-start d-felx d-lg-none"/>
         </Fragment>
     );
 };

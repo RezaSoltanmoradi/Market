@@ -1,18 +1,14 @@
 import classNames from "classnames";
-import Categories from "../containers/Category/CategoryList";
+import CategoryList from "../containers/Category/CategoryList";
 import FilterByPrice from "../containers/FilterByPrice/FilterByPrice";
 import FilterByCategory from "../containers/FilterByCategory/FilterByCategory";
-import { useState } from "react";
-
+// import { useState, useEffect } from "react";
 import classes from "./SideBar.module.scss";
+
 const Sidebar = ({ products, categories, filterByPrice, filterByCategory }) => {
-    const [showFilter, setShowFilter] = useState(false);
-    const filterMethod = {
-        showFilterHandler: setShowFilter,
-        showFilter: showFilter,
-    };
+  
     return (
-        <div className="col-12 py-0 my-0 h-100 d-lg-flex d-none">
+        <div className="col-12 py-0 my-0 h-100">
             <main
                 className={classNames({
                     [classes.Sidebar]: true,
@@ -22,18 +18,14 @@ const Sidebar = ({ products, categories, filterByPrice, filterByCategory }) => {
                 <div className={classes.sidebarBorder}></div>
 
                 <div className="col-12 mt-4">
-                    <Categories
-                        categories={categories}
-                        filterMethod={filterMethod}
-                    />
+                    <CategoryList categories={categories}/>
                 </div>
 
-                <div className="col-12 my-2">
+                <div className="col-12">
                     <FilterByPrice
                         products={products}
                         categories={categories}
                         filterByPrice={filterByPrice}
-                        filterMethod={filterMethod}
                     />
                 </div>
                 {filterByCategory && (
@@ -42,7 +34,6 @@ const Sidebar = ({ products, categories, filterByPrice, filterByCategory }) => {
                             products={products}
                             categories={categories}
                             filterByCategory={filterByCategory}
-                            filterMethod={filterMethod}
                         />
                     </div>
                 )}

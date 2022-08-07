@@ -2,12 +2,9 @@ import { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import classes from "./FilterrByCategory.module.scss";
 import classNames from "classnames";
-import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
-const FilterByCategory = ({ categories, filterByCategory, filterMethod }) => {
+const FilterByCategory = ({ categories, filterByCategory }) => {
     const [updatedCategory, setUpdatedCategory] = useState(null);
-    const { showFilter } = filterMethod;
-    const [showCategories, setShowCategories] = useState(false);
 
     useEffect(() => {
         let loadedCategories = [];
@@ -39,7 +36,7 @@ const FilterByCategory = ({ categories, filterByCategory, filterMethod }) => {
 
     return (
         <SkeletonTheme baseColor="#ededed" highlightColor="white">
-            {showFilter && (
+            
                 <div
                     className={classNames({
                         "mx-5 mt-2": true,
@@ -104,7 +101,7 @@ const FilterByCategory = ({ categories, filterByCategory, filterMethod }) => {
                         )}
                     </form>
                 </div>
-            )}
+            
         </SkeletonTheme>
     );
 };

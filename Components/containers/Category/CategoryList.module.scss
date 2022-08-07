@@ -1,29 +1,89 @@
-@import '../../../styles/mainStyle.scss';
+@import "../../../styles/mainStyle.scss";
 .Category {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     & ul {
         list-style: none;
+        position: relative;
+        overflow: hidden;
         width: 100%;
-        transition: all .2s linear;
-    }
-    .showCategory{
-     display: block;
-    }
-    .hideCategory{
-        display:none;
+        transition: all 0.2s linear;
     }
     & h4 {
         font-weight: bold;
         font-size: large;
-        width:150px!important;
-
+        width: 150px !important;
+    }
+}
+@keyframes showCategoryAnimate {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+@keyframes hideCategoryAnimate {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+    to {
+        top: -300px;
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 992px) {
+    .menubar {
+        display: block;
+        position: relative;
+        width: 200px;
         cursor: pointer;
-        &:hover,  &:active{
-            color: $color-orange;
+        & h4 {
+            margin: 0 4rem;
+        }
+        & ul {
+            box-shadow: 2px 2px 10px rgba(30, 30, 30, 0.2);
+            display: flex;
+            background-color: $color-ligth;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: $radius-small;
+            height: 0;
+            left: 150px;
+            opacity: 0;
+            position: absolute;
+            transition: all 0.5s ease;
+            padding: 10px;
+            margin: 0;
 
+            width: 100%;
+            li {
+                color: $color-success;
+                padding: 0;
+                display: inline-block;
+                width: 100%;
+                cursor: pointer;
+                & a {
+                    cursor: pointer;
+                }
+            }
+        }
+        &:hover ul {
+            height: 200px;
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 500;
+        }
+        &:active ul {
+            height: 200px;
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 500;
         }
     }
 }
-

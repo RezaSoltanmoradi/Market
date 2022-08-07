@@ -1,8 +1,9 @@
 import classes from "./Card.module.scss";
 import Image from "next/image";
+import { BsSearch } from "react-icons/bs";
 import classNames from "classnames";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { BsHeartFill, BsHeart, BsStar, BsStarFill } from "react-icons/bs";
+import { BsHeartFill, BsHeart, BsStarFill } from "react-icons/bs";
 import { useRouter } from "next/router";
 const Card = ({
     title,
@@ -10,8 +11,6 @@ const Card = ({
     description,
     image,
     rate,
-    star,
-    onStar,
     heart,
     onHeart,
     id,
@@ -51,18 +50,24 @@ const Card = ({
                             </span>
                         )}
                     </div>
-                    <div className="col-12 text-center mx-auto">
-                        {image ? (
-                            <Image
-                                src={image}
-                                alt="image"
-                                width={150}
-                                height={150}
-                                objectFit="contain"
-                            />
-                        ) : (
-                            <Skeleton width={150} height={150} />
-                        )}
+                    <div className={classes.imageContainer}>
+                        <div className={classes.Image}>
+                            {image ? (
+                                <Image
+                                    src={image}
+                                    alt="image"
+                                    objectFit="contain"
+                                    layout="fill"
+                                />
+                            ) : (
+                                <Skeleton width={150} height={150} />
+                            )}
+                        </div>
+                        <div className={classes.imageOverlay}>
+                            <span className="text">
+                                <BsSearch />
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div
@@ -113,23 +118,9 @@ const Card = ({
                                 "col-6": true,
                             })}
                         >
-                            {star ? (
-                                <div
-                                    onClick={() => {
-                                        onStar(id);
-                                    }}
-                                >
-                                    <span className={classes.starIcon}>
-                                        <BsStarFill />
-                                    </span>
-                                </div>
-                            ) : (
-                                <div onClick={() => onStar(id)}>
-                                    <span className={classes.starIcon}>
-                                        <BsStar />
-                                    </span>
-                                </div>
-                            )}
+                            <span className={classes.starIcon}>
+                                <BsStarFill />
+                            </span>
 
                             <h6>{rate || <Skeleton width={30} />}</h6>
                         </div>

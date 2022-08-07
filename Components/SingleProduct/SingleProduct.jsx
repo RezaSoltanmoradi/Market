@@ -95,13 +95,13 @@ const SingleProduct = ({ product }) => {
                         </li>
                     </ul>
                 </nav>
-                <main className="col-12 px-5">
-                    <h4 className="mt-4">{title.substring(0, 30)}</h4>
+                <main className="col-12">
+                    <h4 className="mt-4 px-5">{title.substring(0, 30)}</h4>
 
                     <div
                         className={classNames({
                             [classes.mainStar]: true,
-                            "col-12": true,
+                            "col-12 px-5": true,
                         })}
                     >
                         <div>
@@ -128,8 +128,8 @@ const SingleProduct = ({ product }) => {
                             <span>{rating.rate} / 5.0</span>
                         </div>
                     </div>
-                    <h3 className="mt-3">${price}</h3>
-                    <p className="my-3">
+                    <h4 className="mt-3 px-5">${price}</h4>
+                    <p className="my-3 px-5 text-dark">
                         {description.substring(0, 200).toLowerCase()}
                     </p>
                     <ProductQouantity

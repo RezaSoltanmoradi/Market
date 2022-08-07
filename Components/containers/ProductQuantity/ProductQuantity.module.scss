@@ -123,9 +123,10 @@
             border-radius: 0 0 10px 10px;
         }
     }
-    // :global(.css-319lph-ValueContainer) {
-    //        color: $color-orange!important;
-    // }
+    :global(.css-319lph-ValueContainer) {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
     :global(.css-qc6sy-singleValue) {
         font-weight: bold;
         color: $color-orange !important;
@@ -140,12 +141,36 @@
             padding: 0.5rem 0;
         }
     }
+
     .AddCartButton {
         flex-direction: column;
         margin-bottom: 1rem;
         margin-top: 1rem;
         button {
             margin: 1rem 0;
+        }
+    }
+}
+@media screen and (max-width: 576px) {
+    .danger {
+        background-color: $color-danger;
+        width: 25px !important;
+        height: 25px !important;
+    }
+    .light {
+        background-color: $color-ligth;
+        width: 25px !important;
+        height: 25px !important;
+    }
+    .dark {
+        background-color: $color-dark;
+        width: 25px !important;
+        height: 25px !important;
+    }
+    .menubar {
+        :global(.css-qc6sy-singleValue) {
+            font-size: $font-xsmall !important;
+            color: $color-orange !important;
         }
     }
 }

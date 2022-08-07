@@ -6,11 +6,7 @@
         font-size: large;
         margin: 1rem 0;
         width:200px!important;
-        cursor: pointer;
-        &:hover,
-        &:active {
-            color: $color-orange;
-        }
+       
     }
 }
 .FilterPrice {

@@ -4,7 +4,7 @@
     justify-content: center;
     align-items:center;
     border-radius: $radius-med;
-     padding: 0.7rem 0.3rem!important;
+    padding: 0.7rem 0.3rem!important;
     font-weight: bold;
     font-size: $font-med;
     // font-family: Rezvan;
@@ -19,4 +19,11 @@
         background-color: $color-white!important;
         border-radius: 0 !important;
     }
+}
+
+@media screen and (max-width: 576px) {
+.Button{
+    font-size: $font-small;
+
+}
 }
