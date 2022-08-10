@@ -10,10 +10,10 @@ const Header = () => {
                 [classes.Header]: true,
             })}
         >
-            <div className="col-4 col-lg-6">
+            <div className="col-4 col-lg-6 h-100 mx-0 px-0">
                 <MenuList />
             </div>
-            <div className="col-8 col-lg-6 my-0 py-0">
+            <div className="col-8 col-lg-6 my-0 py-0 mx-0 px-0 h-100 position-relative">
                 <Search />
             </div>
         </div>
