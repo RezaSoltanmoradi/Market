@@ -46,7 +46,7 @@ const ProductsPage = () => {
     };
 
     if (loading) {
-        return ;
+        return;
     }
     let finallProducts;
     if (filterByPrice?.length === 0) {

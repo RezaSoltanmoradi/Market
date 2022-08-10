@@ -42,7 +42,7 @@ const FilterByCategory = ({ categories, filterByCategory }) => {
                     [classes.FilterByCategory]: true,
                 })}
             >
-                <form className="form-check d-flex flex-column justify-content-around align-itmes-center col-8 col-lg-12">
+                <form className="form-check d-flex flex-column justify-content-around align-itmes-center col-12 col-sm-8 col-lg-12">
                     {updatedCategory?.map((item, index) => (
                         <label
                             key={item.id}
