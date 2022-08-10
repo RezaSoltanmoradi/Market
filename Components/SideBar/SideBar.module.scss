@@ -1,4 +1,4 @@
-
+@import '../../styles/mainStyle.scss';
 .Sidebar {
     position: sticky !important;
     display: flex;
@@ -14,6 +14,24 @@
         height: 90vh;
         border-right: black 2px solid;
         opacity: 0.5;
+    }
+}
+.ProductsLink {
+    & span {
+        color: $color-orange;
+        font-size: $font-large;
+        width: 50px;
+        font-weight: bold;
+       padding-right: 1rem;
+    }
+    & a {
+        font-size: large;
+        font-weight: 600;
+        text-decoration:none;
+        color:$color-dark;
+        &:hover {
+            color: $color-orange;
+        }
     }
 }
 @media screen and (max-width: 576px) {

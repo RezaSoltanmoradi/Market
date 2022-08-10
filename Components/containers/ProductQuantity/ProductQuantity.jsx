@@ -94,7 +94,7 @@ const ProductQouantity = ({ addToCart, addToFavorite }) => {
                     color="black"
                 >
                     <span>{heart ? <BsHeartFill /> : <BsHeart />}</span>
-                    <p>Save to Favorite</p>
+                    <p>Add to Favorite</p>
                 </Button>
             </div>
         </Fragment>

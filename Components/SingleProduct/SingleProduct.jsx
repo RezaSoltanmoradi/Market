@@ -9,7 +9,8 @@ import {
 import Image from "next/image";
 import { useRouter } from "next/router";
 import ProductQouantity from "../containers/ProductQuantity/ProductQuantity";
-
+import Link from "next/link";
+import { ConvertTitleToSlug } from "../../helper/utils";
 const SingleProduct = ({ product }) => {
     const { title, description, price, rating, category, image } = product;
     const router = useRouter();
@@ -79,13 +80,21 @@ const SingleProduct = ({ product }) => {
                 <nav className="col-12 col-lg-9 offset-lg-1">
                     <ul>
                         <li>
-                            products
+                            <Link href="/products">
+                                <a>products</a>
+                            </Link>
                             <span>
                                 <BsCaretRightFill />
                             </span>
                         </li>
                         <li>
-                            {category}
+                            <Link
+                                href={`/products/${ConvertTitleToSlug(
+                                    category
+                                )}`}
+                            >
+                                <a>{category}</a>
+                            </Link>
                             <span>
                                 <BsCaretRightFill />
                             </span>

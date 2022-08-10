@@ -55,11 +55,13 @@
         & li {
             padding: 0 20px;
             margin-left: 10px;
-            font-family: sans-serif;
-            color: $color-success;
-            font-weight: bold;
-            font-size: $font-xsmall;
-            text-decoration: none;
+            a {
+                text-decoration: none;
+                font-size: $font-xsmall;
+                font-weight: bold;
+                color: $color-success;
+                font-family: sans-serif;
+            }
         }
         & span {
             color: $color-danger;
@@ -115,8 +117,10 @@
                 margin: 0 auto;
                 padding: 0;
                 margin-left: 10px;
-                font-family: sans-serif;
-                font-size: $font-xsmall;
+                a {
+                    font-family: sans-serif;
+                    font-size: $font-xsmall;
+                }
             }
             & span {
                 font-size: $font-small;

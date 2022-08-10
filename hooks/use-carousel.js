@@ -27,7 +27,18 @@ const useCarousale = ({ number }) => {
         }
     };
     useEffect(() => {
-       
+        switch (count) {
+            case 3:
+                setRightClickable(false);
+                break;
+            case 1:
+                setLeftClickable(true);
+                break;
+            case 0:
+                setRightClickable(true);
+                setLeftClickable(false);
+                break;
+        }
         const next = (count + 1) % number;
         const timer = setTimeout(() => setCount(next), 3000);
         return () => clearTimeout(timer);

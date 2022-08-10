@@ -4,7 +4,8 @@ import FilterByPrice from "../containers/FilterByPrice/FilterByPrice";
 import FilterByCategory from "../containers/FilterByCategory/FilterByCategory";
 // import { useState, useEffect } from "react";
 import classes from "./SideBar.module.scss";
-
+import Link from "next/link";
+import { BsArrowLeft} from "react-icons/bs";
 const Sidebar = ({ products, categories, filterByPrice, filterByCategory }) => {
   
     return (
@@ -28,7 +29,7 @@ const Sidebar = ({ products, categories, filterByPrice, filterByCategory }) => {
                         filterByPrice={filterByPrice}
                     />
                 </div>
-                {filterByCategory && (
+                {filterByCategory? (
                     <div className="col-12 my-2">
                         <FilterByCategory
                             products={products}
@@ -36,6 +37,21 @@ const Sidebar = ({ products, categories, filterByPrice, filterByCategory }) => {
                             filterByCategory={filterByCategory}
                         />
                     </div>
+                ):(
+                    <div
+                    className={classNames({
+                        [classes.ProductsLink]: true,
+                        " mx-auto mt-4": true,
+                    })}
+                >
+                    <span>
+                        <BsArrowLeft />
+                    </span>
+                   
+                    <Link href='/products'> 
+                    <a>All Products</a>
+                    </Link>
+                </div>
                 )}
             </main>
         </div>

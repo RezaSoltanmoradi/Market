@@ -14,7 +14,7 @@ const MenuList = () => {
         <Fragment>
             <div
                 className={classNames({
-                    "col-10 row": true,
+                    "col-12 col-xl-10 mx-0 px-0 row": true,
                 })}
             >
                 {openMenubar && (

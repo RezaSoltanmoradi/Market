@@ -46,7 +46,7 @@ const ProductsPage = () => {
     };
 
     if (loading) {
-        return <Spinner />;
+        return ;
     }
     let finallProducts;
     if (filterByPrice?.length === 0) {
@@ -65,19 +65,18 @@ const ProductsPage = () => {
     }
 
     return (
-       <div>
-         <div className=" row mx-auto mb-5">
-            <div className="col-12 col-lg-3 pt-4 mx-0 px-0 ">
-                <Sidebar
-                    categories={categories}
-                    filterByPrice={handleFilterByPrice}
-                    filterByCategory={handleFilterByCategory}
-                />
+        <div>
+            <div className=" row mx-auto mb-5">
+                <div className="col-12 col-lg-3 pt-4 mx-0 px-0 ">
+                    <Sidebar
+                        categories={categories}
+                        filterByPrice={handleFilterByPrice}
+                        filterByCategory={handleFilterByCategory}
+                    />
+                </div>
+                <div className="col-12 col-lg-8">{finallProducts}</div>
             </div>
-            <div className="col-12 col-lg-8">{finallProducts}</div>
         </div>
-    
-       </div>
     );
 };
 // export const getStaticProps = async () => {

@@ -17,7 +17,7 @@ const CarrousellItems = ({
     const { title, description, rating, price, image } = products
         ? products[count]
         : {};
-        const [heart, setHeart]= useState(false);
+    const [heart, setHeart] = useState(false);
     return (
         <SkeletonTheme baseColor="#ededed" highlightColor="white">
             <div
@@ -32,12 +32,12 @@ const CarrousellItems = ({
                         "mx-auto row col-12 pt-2  ": true,
                     })}
                 >
-                     <div
+                    <div
                         onClick={() => setHeart(!heart)}
                         className={classNames({
                             [classes.HeartFill]: heart,
                             [classes.Heart]: !heart,
-                            "offset-10": true,
+                            "offset-10 offset-lg-11": true,
                         })}
                     >
                         {heart ? (
@@ -66,22 +66,24 @@ const CarrousellItems = ({
 
                         <div
                             className={classNames({
+                                [classes.imageContainer]: true,
                                 "col-8": true,
+                                [classes.imageAnimate]: true,
                             })}
                         >
-                            {image ? (
-                                <Image
-                                    src={image}
-                                    alt="image"
-                                    width={250}
-                                    objectFit="contain"
-                                    height={250}
-                                />
-                            ) : (
-                                <Skeleton width={250} height={250} />
-                            )}
+                            <div className={classes.Image}>
+                                {image ? (
+                                    <Image
+                                        src={image}
+                                        alt="image"
+                                        objectFit="contain"
+                                        layout="fill"
+                                    />
+                                ) : (
+                                    <Skeleton className={classes.skeleton} />
+                                )}
+                            </div>
                         </div>
-
                         <div className="col-2  d-flex justify-content-center align-items-center">
                             <div
                                 onClick={nextCard}

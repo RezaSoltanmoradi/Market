@@ -16,11 +16,10 @@ const Card = ({
     id,
 }) => {
     const router = useRouter();
-
+console.log('type of heart', typeof heart)
     return (
         <SkeletonTheme baseColor="#ededed" highlightColor="white">
             <div
-                onClick={() => router.push(`/product/${id}`)}
                 className={classNames({
                     [classes.container]: true,
                     "  mt-4": true,
@@ -33,7 +32,7 @@ const Card = ({
                     })}
                 >
                     <div
-                        onClick={() => onHeart(id)}
+                        onClick={() =>{if(typeof heart==='boolean'){onHeart(id) } } }
                         className={classNames({
                             [classes.HeartFill]: heart,
                             [classes.Heart]: !heart,
@@ -50,7 +49,9 @@ const Card = ({
                             </span>
                         )}
                     </div>
-                    <div className={classes.imageContainer}>
+                    <div className={classes.imageContainer} 
+                     onClick={() => router.push(`/product/${id}`)}
+                >
                         <div className={classes.Image}>
                             {image ? (
                                 <Image
@@ -71,6 +72,7 @@ const Card = ({
                     </div>
                 </div>
                 <div
+                    onClick={() => router.push(`/product/${id}`)}
                     className={classNames({
                         [classes.cardInfo]: true,
                         "col-12 card-info mt-3": true,

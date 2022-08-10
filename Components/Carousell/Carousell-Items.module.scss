@@ -5,9 +5,20 @@
     transition: all 0.2s linear;
     box-sizing: border-box;
     gap: 2px;
+    position: relative;
+    right: 0;
+    overflow: hidden;
     &:hover {
         box-shadow: 4px 0px 10px #878787;
-        border-radius:0;
+        border-radius: 0;
+    }
+}
+@keyframes animate {
+    from {
+        right: -600px;
+    }
+    to {
+        right: 0px;
     }
 }
 .gallaryImage {
@@ -15,8 +26,25 @@
     top: 0;
     border-radius: $radius-med;
     z-index: 50;
-    & Image {
-        z-index: 50;
+    
+    & .imageContainer {
+        transition: all 0.2s linear;
+        position: relative;
+        animation: animate 0.4s ease-in-out;
+    }
+    & .Image {
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        border-radius: 30px;
+        width: 250px;
+        height: 250px;
+        margin-bottom: 1rem !important;
+
+    }
+    & .skeleton {
+        width: 250px;
+        height: 250px;
     }
 }
 .scrollIcon {
@@ -38,10 +66,10 @@
         transform: scaleY(1.2);
     }
 }
-.HeartFill{
+.HeartFill {
     @include HeartFill;
 }
-.Heart{
+.Heart {
     @include Heart;
 }
 .title {
@@ -81,5 +109,21 @@
         @include flexible;
         cursor: pointer;
         @include moveTop;
+    }
+}
+@media screen and (max-width: 576px) {
+    .gallaryImage {
+        & .Image {
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 30px;
+            width: 150px;
+            height: 150px;
+        }
+        & .skeleton {
+            width: 150px;
+            height: 150px;
+        }
     }
 }

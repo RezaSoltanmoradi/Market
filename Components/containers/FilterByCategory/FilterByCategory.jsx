@@ -36,72 +36,70 @@ const FilterByCategory = ({ categories, filterByCategory }) => {
 
     return (
         <SkeletonTheme baseColor="#ededed" highlightColor="white">
-            
-                <div
-                    className={classNames({
-                        "mx-5 mt-2": true,
-                        [classes.FilterByCategory]: true,
-                    })}
-                >
-                    <form className="form-check d-flex flex-column justify-content-around align-itmes-center">
-                        {updatedCategory?.map((item, index) => (
-                            <label
-                                key={item.id}
-                                id={item.id}
-                                className="form-check-label"
-                            >
-                                <input
-                                    className="form-check-input"
-                                    type="checkbox"
-                                    checked={item.checked}
-                                    onChange={() => onChangeInput(item.id)}
-                                />
-                                {item.category}
-                            </label>
-                        ))}
-                        {!categories && (
-                            <form className="form-check mt-2">
-                                <input
-                                    type="checkbox"
-                                    className="form-check-input"
-                                />
-                                <Skeleton
-                                    height={20}
-                                    width={150}
-                                    style={{ margin: ".3rem 1rem" }}
-                                />
-                                <input
-                                    type="checkbox"
-                                    className="form-check-input"
-                                />
-                                <Skeleton
-                                    height={20}
-                                    width={150}
-                                    style={{ margin: ".3rem 1rem" }}
-                                />
-                                <input
-                                    type="checkbox"
-                                    className="form-check-input"
-                                />
-                                <Skeleton
-                                    height={20}
-                                    width={150}
-                                    style={{ margin: ".3rem 1rem" }}
-                                />
-                                <input
-                                    type="checkbox"
-                                    className="form-check-input"
-                                />
-                                <Skeleton
-                                    height={20}
-                                    width={150}
-                                    style={{ margin: ".3rem 1rem" }}
-                                />
-                            </form>
-                        )}
-                    </form>
-                </div>
-            
+            <div
+                className={classNames({
+                    "mx-5 mt-2": true,
+                    [classes.FilterByCategory]: true,
+                })}
+            >
+                <form className="form-check d-flex flex-column justify-content-around align-itmes-center col-8 col-lg-12">
+                    {updatedCategory?.map((item, index) => (
+                        <label
+                            key={item.id}
+                            id={item.id}
+                            className="form-check-label"
+                        >
+                            <input
+                                className="form-check-input"
+                                type="checkbox"
+                                checked={item.checked}
+                                onChange={() => onChangeInput(item.id)}
+                            />
+                            {item.category}
+                        </label>
+                    ))}
+                    {!categories && (
+                        <form className="form-check mt-2">
+                            <input
+                                type="checkbox"
+                                className="form-check-input"
+                            />
+                            <Skeleton
+                                height={20}
+                                width={150}
+                                style={{ margin: ".3rem 1rem" }}
+                            />
+                            <input
+                                type="checkbox"
+                                className="form-check-input"
+                            />
+                            <Skeleton
+                                height={20}
+                                width={150}
+                                style={{ margin: ".3rem 1rem" }}
+                            />
+                            <input
+                                type="checkbox"
+                                className="form-check-input"
+                            />
+                            <Skeleton
+                                height={20}
+                                width={150}
+                                style={{ margin: ".3rem 1rem" }}
+                            />
+                            <input
+                                type="checkbox"
+                                className="form-check-input"
+                            />
+                            <Skeleton
+                                height={20}
+                                width={150}
+                                style={{ margin: ".3rem 1rem" }}
+                            />
+                        </form>
+                    )}
+                </form>
+            </div>
         </SkeletonTheme>
     );
 };
