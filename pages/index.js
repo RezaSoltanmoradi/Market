@@ -16,7 +16,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div>
+        <div >
             <Head>
                 <title>Market</title>
                 <meta

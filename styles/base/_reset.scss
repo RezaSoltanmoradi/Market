@@ -1,0 +1,22 @@
+@import '../_colors.scss';
+
+body{
+    padding:0;
+    margin:0;
+    .light{
+        & .text{
+         color:$color-dark!important;
+        }
+        & .background{
+         background-color:$color-white!important;
+        }
+    }
+    .dark{
+       & .text{
+        color:$color-ligth!important;
+        }
+        & .background{
+        background-color:$color-dark!important;
+         }
+         }
+    }

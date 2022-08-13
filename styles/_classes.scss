@@ -1,0 +1,35 @@
+:root{
+     .center {
+        text-align: center;
+    }
+ .primary-color {
+    color: var(--primary-color);
+}
+ .dark-color {
+    color: var(--dark-color);
+}
+ .light-color {
+    color: var(--light-color);
+}
+ .success-color {
+    color: var(--success-color);
+}
+ .warning-color {
+    color: var(--warning-color);
+}
+ .bg-primary-color {
+    background-color: var(--primary-color);
+}
+ .bg-dark-color {
+    background-color: var(--dark-color)!important;
+}
+ .bg-light-color {
+    background-color: var(--light-color);
+}
+ .bg-success-color {
+    background-color: var(--success-color);
+}
+ .bg-warning-color {
+    background-color: var(--warning-color);
+}
+}

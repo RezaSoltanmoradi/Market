@@ -9,12 +9,12 @@ import Backdrop from "../UI/Backdrop/Backdrop";
 const MenuList = () => {
     const [openMenubar, setOpenMenubar] = useState(false);
     const cartData = [{}, {}, {}];
-    
+
     return (
         <Fragment>
             <div
                 className={classNames({
-                    "col-12 col-xl-10 mx-0 px-0 row": true,
+                    "col-12 col-xl-10 h-100 mx-0 px-0 row": true,
                 })}
             >
                 {openMenubar && (
@@ -69,9 +69,7 @@ const MenuList = () => {
                     </ul>
                 </nav>
 
-
-
-                <nav className="col-12 my-0 pb-0 d-flex d-lg-none   ">
+                <nav className="col-12 my-0 pb-0 d-flex d-lg-none  justify-contnet-center align-items-center h-100 ">
                     <span
                         className={classes.Icon}
                         onClick={() => setOpenMenubar(true)}
@@ -79,8 +77,6 @@ const MenuList = () => {
                         <BsList />
                     </span>
                 </nav>
-
-
 
                 <nav
                     className={classNames({
@@ -104,7 +100,10 @@ const MenuList = () => {
                                 <BsX />
                             </span>
                         </li>
-                        <MenuItem link="/cart" clicked={()=>setOpenMenubar(false)}>
+                        <MenuItem
+                            link="/cart"
+                            clicked={() => setOpenMenubar(false)}
+                        >
                             <div
                                 className={classNames({
                                     [classes.Cart]: true,
@@ -132,14 +131,35 @@ const MenuList = () => {
                                 </span>
                             </div>
                         </MenuItem>
-                        <MenuItem link="/" clicked={()=>setOpenMenubar(false)}> Home</MenuItem>
+                        <MenuItem
+                            link="/"
+                            clicked={() => setOpenMenubar(false)}
+                        >
+                            {" "}
+                            Home
+                        </MenuItem>
 
-                        <MenuItem link="/products" clicked={()=>setOpenMenubar(false)}>
+                        <MenuItem
+                            link="/products"
+                            clicked={() => setOpenMenubar(false)}
+                        >
                             Products
                             <span className=" text-danger pb-2"> *</span>
                         </MenuItem>
-                        <MenuItem link="/favorite" clicked={()=>setOpenMenubar(false)}> Favorite</MenuItem>
-                        <MenuItem link="/about" clicked={()=>setOpenMenubar(false)}> About</MenuItem>
+                        <MenuItem
+                            link="/favorite"
+                            clicked={() => setOpenMenubar(false)}
+                        >
+                            {" "}
+                            Favorite
+                        </MenuItem>
+                        <MenuItem
+                            link="/about"
+                            clicked={() => setOpenMenubar(false)}
+                        >
+                            {" "}
+                            About
+                        </MenuItem>
                     </ul>
                 </nav>
             </div>

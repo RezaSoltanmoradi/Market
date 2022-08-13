@@ -45,7 +45,7 @@ $redius-large: 15px;
         transform: translateY(-5px);
     }
 }
-@mixin animate {
+@mixin rotate {
     animation: rotation 0.5s linear;
     @keyframes rotation {
         from {
