@@ -117,7 +117,7 @@ const Search = () => {
                             <div
                                 className={classNames({
                                     [classes.RemoveText]: true,
-                                    "col-2": true,
+                                    "col-2 text": true,
                                 })}
                             >
                                 <span onClick={() => setValue("")}>

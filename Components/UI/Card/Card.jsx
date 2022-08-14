@@ -16,13 +16,13 @@ const Card = ({
     id,
 }) => {
     const router = useRouter();
-console.log('type of heart', typeof heart)
+    console.log('type of heart', typeof heart)
     return (
         <SkeletonTheme baseColor="#ededed" highlightColor="white">
             <div
                 className={classNames({
                     [classes.container]: true,
-                    "  mt-4": true,
+                    "  mt-4 box-shadow": true,
                 })}
             >
                 <div
@@ -36,7 +36,7 @@ console.log('type of heart', typeof heart)
                         className={classNames({
                             [classes.HeartFill]: heart,
                             [classes.Heart]: !heart,
-                            "offset-10": true,
+                            "offset-10 background": true,
                         })}
                     >
                         {heart ? (

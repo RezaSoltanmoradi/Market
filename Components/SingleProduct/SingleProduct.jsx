@@ -42,7 +42,7 @@ const SingleProduct = ({ product }) => {
                         <div
                             className={classNames({
                                 [classes.goBack]: true,
-                                "col-6  ": true,
+                                "col-6": true,
                             })}
                         >
                             <span>
@@ -51,6 +51,7 @@ const SingleProduct = ({ product }) => {
                             <button
                                 onClick={() => router.back()}
                                 style={{ border: "none" }}
+                                className="text"
                             >
                                 Go Back
                             </button>
@@ -68,7 +69,12 @@ const SingleProduct = ({ product }) => {
                         </div>
                     </div>
                 </div>
-                <div className={classes.Border}></div>
+                <div
+                    className={classNames({
+                        [classes.Border]: true,
+                        "bg-content": true,
+                    })}
+                ></div>
             </div>
 
             <div
@@ -138,7 +144,7 @@ const SingleProduct = ({ product }) => {
                         </div>
                     </div>
                     <h4 className="mt-3 px-5">${price}</h4>
-                    <p className="my-3 px-5 text-dark">
+                    <p className="my-3 px-5  text">
                         {description.substring(0, 200).toLowerCase()}
                     </p>
                     <ProductQouantity

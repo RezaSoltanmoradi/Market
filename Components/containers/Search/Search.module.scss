@@ -49,6 +49,7 @@
             align-items: center;
             transition: all 0.2s linear;
             font-weight: bold;
+            color: $color-dark;
             &:hover {
                 color: $color-danger;
                 cursor: pointer;

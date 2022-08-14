@@ -5,7 +5,7 @@ const QuantityCard = ({ children, filterName }) => {
         <main
             className={classNames({
                 [classes.Qouantity]: true,
-                "col-6 col-lg-4 text-center": true,
+                "col-6 col-lg-4 text-center background ": true,
             })}
         >
             {filterName && <h6 className={classes.filterName}>{filterName}</h6>}

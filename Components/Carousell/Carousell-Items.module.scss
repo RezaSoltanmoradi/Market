@@ -1,6 +1,5 @@
 @import "../../styles/mainStyle.scss";
 .container {
-    box-shadow: 0px 4px 10px #adacac;
     border-radius: $radius-med;
     transition: all 0.2s linear;
     box-sizing: border-box;
@@ -9,7 +8,7 @@
     right: 0;
     overflow: hidden;
     &:hover {
-        box-shadow: 4px 0px 10px #878787;
+        box-shadow: 4px 0px 10px #878787 !important;
         border-radius: 0;
     }
 }
@@ -26,7 +25,7 @@
     top: 0;
     border-radius: $radius-med;
     z-index: 50;
-    
+
     & .imageContainer {
         transition: all 0.2s linear;
         position: relative;
@@ -40,7 +39,6 @@
         width: 250px;
         height: 250px;
         margin-bottom: 1rem !important;
-
     }
     & .skeleton {
         width: 250px;
@@ -58,7 +56,6 @@
     }
 }
 .disable {
-    color: $color-danger;
     opacity: 0.5;
     cursor: not-allowed;
     &:hover {

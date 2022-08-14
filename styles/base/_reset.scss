@@ -1,22 +1,41 @@
-@import '../_colors.scss';
+@import "../_colors.scss";
 
-body{
-    padding:0;
-    margin:0;
-    .light{
-        & .text{
-         color:$color-dark!important;
+body {
+    padding: 0;
+    margin: 0;
+    .light {
+        & .text {
+            color: $color-dark ;
         }
-        & .background{
-         background-color:$color-white!important;
+        & .text-content{
+            color: $color-white;
+        }
+        & .background {
+            background-color: $color-white !important;
+        }
+        & .bg-content{
+            background-color: $color-dark !important;
+        }
+        & .box-shadow{
+           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
     }
-    .dark{
-       & .text{
-        color:$color-ligth!important;
+    .dark {
+        & .text {
+            color: $color-ligth;
         }
-        & .background{
-        background-color:$color-dark!important;
-         }
-         }
+        & .text-content{
+            color: $color-dark;
+        }
+        & .background {
+            background-color: $color-dark !important;
+            
+        }
+        & .bg-content{
+            background-color: $color-white !important;
+        }
+        & .box-shadow{
+            box-shadow: 0 4px 30px rgba(252, 249, 249, 0.3);
+        }
     }
+}

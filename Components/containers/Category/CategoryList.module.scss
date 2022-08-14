@@ -40,7 +40,6 @@
     .menubar {
         display: block;
         position: relative;
-        width: 200px;
         height: 40px;
         display:flex;
         cursor: pointer;
@@ -58,12 +57,11 @@
         & ul {
             box-shadow: 2px 2px 10px rgba(30, 30, 30, 0.2);
             display: flex;
-            background-color: $color-ligth;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            text-align:center;
             border-radius: $radius-small;
-            height: 0;
             left: 50px;
             top: 40px;
             opacity: 0;
@@ -71,30 +69,44 @@
             transition: all 0.5s ease;
             padding: 10px;
             margin: 0 auto;
-
-            // width: 100%;
+            width: 80%;
+            height:0;
             li {
-                color: $color-success;
                 padding: 0;
-                display: inline-block;
-                width: 100%;
-                cursor: pointer;
-                & a {
-                    cursor: pointer;
-                }
+                display: none;
             }
         }
         &:hover ul {
-            height: 200px;
+            height: 250px;
             opacity: 1;
             transform: translateY(0);
             z-index: 500;
+        & li{
+            height:30px!important;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+                width: 100%;
+                & a {
+                    cursor: pointer;
+                }
         }
-        &:active ul {
-            height: 200px;
-            opacity: 1;
-            transform: translateY(0);
-            z-index: 500;
+    }
+    &:active ul {
+        height: 250px;
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 500;
+        & li{
+            height:30px !important;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            width: 100%;
+            & a {
+                cursor: pointer;
+            }
         }
+    }
     }
 }

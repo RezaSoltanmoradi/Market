@@ -7,12 +7,10 @@
     box-sizing: border-box;
     height: 400px;
     max-height: 400px;
-   
-    // z-index: 100;
     overflow: hidden;
 
     &:hover {
-        box-shadow: 4px 0px 10px #878787;
+        box-shadow: 4px 0px 10px #878787 !important;
         border-radius: 0;
     }
 }
@@ -29,7 +27,6 @@
         transition: all 0.2s linear;
         position: relative;
         cursor: pointer;
-
     }
     & .Image {
         text-align: center;
@@ -112,7 +109,6 @@
     height: 150px;
     padding: 0 2rem 0 1rem;
     cursor: pointer;
-
 }
 .description {
     width: 100%;

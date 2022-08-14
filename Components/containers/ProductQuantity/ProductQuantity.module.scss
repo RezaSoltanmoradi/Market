@@ -13,6 +13,7 @@
         margin: 0;
         font-size: $font-small;
         font-weight: 600;
+        color: $color-dark;
     }
     .danger {
         border-radius: 50%;
@@ -112,20 +113,44 @@
         font-weight: bold;
         background-color: $color-white !important;
         cursor: pointer !important;
+        &:hover {
+            color: $color-warning !important;
+            background-color: $color-success !important;
+        }
+        &:active {
+            color: $color-warning !important;
+            background-color: $color-success !important;
+        }
     }
     :global(.css-1n7v3ny-optionon) {
         cursor: pointer !important;
+        color: $color-dark !important;
+    }
+    :global(.css-1n7v3ny-option) {
+        background-color: $color-white;
+        color: $color-dark;
+        &:hover {
+            color: $color-white !important;
+            background-color: $color-success !important;
+        }
+        &:active {
+            color: $color-white !important;
+            background-color: $color-success !important;
+        }
     }
     :global(.css-yt9ioa-option) {
+        color: $color-dark !important;
         cursor: pointer !important;
         &:active,
         &:hover {
             border-radius: 0 0 10px 10px;
+            color: $color-dark !important;
         }
     }
     :global(.css-319lph-ValueContainer) {
         margin: 0 !important;
         padding: 0 !important;
+        color: $color-dark;
     }
     :global(.css-qc6sy-singleValue) {
         font-weight: bold;

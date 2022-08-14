@@ -7,7 +7,7 @@ const Header = ({ switchTheme, theme }) => {
     return (
         <div
             className={classNames({
-                "col-12 d-flex justify-content-around align-items-center sticky-top mx-0 px-0": true,
+                "col-12 d-flex justify-content-around align-items-center sticky-top mx-0 px-0 box-shadow": true,
                 [classes.Header]: true,
             })}
         >

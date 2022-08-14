@@ -23,7 +23,7 @@ const CarrousellItems = ({
             <div
                 className={classNames({
                     [classes.container]: true,
-                    " col-12 col-lg-10 mt-0 pt-0 mx-auto row": true,
+                    " col-12 col-lg-10 mt-0 pt-0 mx-auto row box-shadow": true,
                 })}
             >
                 <div
@@ -37,7 +37,7 @@ const CarrousellItems = ({
                         className={classNames({
                             [classes.HeartFill]: heart,
                             [classes.Heart]: !heart,
-                            "offset-10 offset-lg-11": true,
+                            "offset-10 offset-lg-11 background": true,
                         })}
                     >
                         {heart ? (
@@ -57,7 +57,7 @@ const CarrousellItems = ({
                                 className={classNames({
                                     [classes.scrollIcon]: true,
                                     [classes.disable]: !leftClick,
-                                    " col-6 ": true,
+                                    " col-6 text": true,
                                 })}
                             >
                                 <BsArrowLeft />
@@ -90,7 +90,7 @@ const CarrousellItems = ({
                                 className={classNames({
                                     [classes.scrollIcon]: true,
                                     [classes.disable]: !rigthClick,
-                                    " col-6": true,
+                                    " col-6 text": true,
                                 })}
                             >
                                 <BsArrowRight />

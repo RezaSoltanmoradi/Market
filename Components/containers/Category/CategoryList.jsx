@@ -18,14 +18,14 @@ const CategoryList = ({ categories }) => {
             </div>
             <div className={classNames({
                 [classes.menubar]:true,
-                'col-12':true,
+                'col-12 col-lg-10':true,
             })}>
                 <h4 className=" col-4 d-flex d-lg-none justify-content-between align-items-center"> Category
                 <span>
                 <BsChevronDown/>
                 </span>
                 </h4>
-                <ul className="col-12">
+                <ul className=" background">
                     {!categories && (
                         <SkeletonTheme
                             baseColor="#ededed"

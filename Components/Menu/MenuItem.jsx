@@ -19,7 +19,7 @@ const MenuItem = ({ children, link, clicked }) => {
                 })}
             >
                 <Link href={link}>
-                    <a className='text'  onClick={clicked}>{children}</a>
+                    <a  className="text" onClick={clicked}>{children}</a>
                 </Link>
             </li>
         </Fragment>

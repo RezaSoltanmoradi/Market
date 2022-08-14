@@ -3,7 +3,6 @@
 .MenuItem {
     padding: 1rem;
     & a {
-        color: $color-dark!important;
         width: 100%;
         list-style: none;
         text-decoration: none;
@@ -13,12 +12,12 @@
         font-family: sans-serif;
         &:hover,
         &:active {
-            color: $color-orange!important;
+            color: $color-orange!important; 
         }
     }
 }
 .active {
     & a {
-        color: $color-orange;
+        color: $color-orange!important;
     }
 }
