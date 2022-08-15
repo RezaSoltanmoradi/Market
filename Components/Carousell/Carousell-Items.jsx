@@ -122,8 +122,13 @@ const CarrousellItems = ({
                             "col-10 mx-4 offset-4 ": true,
                         })}
                     >
-                        <p>
+                        <p className="d-none d-lg-flex">
                             {description?.substring(0, 150) || (
+                                <Skeleton count={2} width={300} />
+                            )}
+                        </p>
+                        <p className="d-flex d-lg-none">
+                            {description?.substring(0, 100) || (
                                 <Skeleton count={2} width={300} />
                             )}
                         </p>

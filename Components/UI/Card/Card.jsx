@@ -96,9 +96,16 @@ const Card = ({
                             "col-12 mt-4": true,
                         })}
                     >
+                        <p className='d-none d-lg-flex'>
                         {description?.substring(0, 48).toLowerCase() || (
                             <Skeleton count={2} width={140} />
-                        )}
+                            )}
+                            </p>
+                        <p className='d-flex d-lg-none'>
+                        {description?.substring(0, 100).toLowerCase() || (
+                            <Skeleton count={2} width={140} />
+                            )}
+                            </p>
                     </div>
                     <div
                         className={classNames({

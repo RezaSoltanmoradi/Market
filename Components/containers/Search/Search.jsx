@@ -69,7 +69,7 @@ const Search = () => {
                     inputRef.current.focus();
                 }}
                 className={classNames({
-                    "col-10 row col-lg-8 mx-auto": true,
+                    "col-10  row col-lg-12 mx-auto": true,
                     [classes.container]: true,
                 })}
             >

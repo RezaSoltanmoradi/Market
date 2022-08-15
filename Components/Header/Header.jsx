@@ -17,15 +17,15 @@ const Header = ({ switchTheme, theme }) => {
             <div className="col-7 col-lg-4 my-0 py-0 mx-0 px-0 h-100 position-relative">
                 <Search />
             </div>
-            <div className="toggle_vylO colorModeToggle_DEke">
+            <div className="toggle_vylO colorModeToggle_DEke col-2 mx-0 px-0 h-100 d-flex align-items-center">
                 <button
-                    className="clean-btn toggleButton_gllP"
+                    className="clean-btn toggleButton_gllP col-12"
                     type="button"
                     title="Switch between dark and light mode (currently dark mode)"
                     aria-label="Switch between dark and light mode (currently dark mode)"
                     onClick={switchTheme}
                 >
-                    {theme === "light" && (
+                    {theme === "dark" && (
                         <svg
                             viewBox="0 0 24 24"
                             width="24"
@@ -38,12 +38,12 @@ const Header = ({ switchTheme, theme }) => {
                             ></path>
                         </svg>
                     )}
-                    {theme === "dark" && (
+                    {theme === "light" && (
                         <svg
                             viewBox="0 0 24 24"
                             width="24"
                             height="24"
-                            className="darkToggleIcon_wfgR"
+                            className="darkToggleIcon_wfgR text"
                         >
                             <path
                                 fill="currentColor"

@@ -58,14 +58,23 @@ const MenuList = () => {
                                 </span>
                             </div>
                         </MenuItem>
-                        <MenuItem link="/"> Home</MenuItem>
+                        <MenuItem link="/" textClass="text">
+                            {" "}
+                            Home
+                        </MenuItem>
 
-                        <MenuItem link="/products">
+                        <MenuItem link="/products" textClass="text">
                             Products
                             <span className=" text-danger pb-2">*</span>
                         </MenuItem>
-                        <MenuItem link="/favorite"> Favorite</MenuItem>
-                        <MenuItem link="/about"> About</MenuItem>
+                        <MenuItem link="/favorite" textClass="text">
+                            {" "}
+                            Favorite
+                        </MenuItem>
+                        <MenuItem link="/about" textClass="text">
+                            {" "}
+                            About
+                        </MenuItem>
                     </ul>
                 </nav>
 
@@ -134,6 +143,7 @@ const MenuList = () => {
                         <MenuItem
                             link="/"
                             clicked={() => setOpenMenubar(false)}
+                            textClass="text-dark"
                         >
                             {" "}
                             Home
@@ -142,6 +152,7 @@ const MenuList = () => {
                         <MenuItem
                             link="/products"
                             clicked={() => setOpenMenubar(false)}
+                            textClass="text-dark"
                         >
                             Products
                             <span className=" text-danger pb-2"> *</span>
@@ -149,6 +160,7 @@ const MenuList = () => {
                         <MenuItem
                             link="/favorite"
                             clicked={() => setOpenMenubar(false)}
+                            textClass="text-dark"
                         >
                             {" "}
                             Favorite
@@ -156,6 +168,7 @@ const MenuList = () => {
                         <MenuItem
                             link="/about"
                             clicked={() => setOpenMenubar(false)}
+                            textClass="text-dark"
                         >
                             {" "}
                             About

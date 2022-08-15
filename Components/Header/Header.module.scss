@@ -4,5 +4,11 @@
     background: rgba(0, 13, 255, 0);
     z-index: 150;
     height: 60px;
+    & button{
+        border:none;
+        outline: none;
+        background-color: transparent;
+        color:rgb(255, 234, 0) !important;
+    }
 }
 

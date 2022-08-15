@@ -4,7 +4,7 @@ const useCarousale = ({ number }) => {
     const [count, setCount] = useState(0);
     const [rightClickable, setRightClickable] = useState(true);
     const [leftClickable, setLeftClickable] = useState(true);
-
+    
     const rightMoving = () => {
         if (count === 3) {
             setRightClickable(false);
