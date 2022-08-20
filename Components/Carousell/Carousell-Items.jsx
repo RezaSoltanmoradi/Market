@@ -5,19 +5,31 @@ import { BsHeartFill, BsHeart } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 const CarrousellItems = ({
     products,
     count,
     nextCard,
     prevCard,
+    changeSlide,
     rigthClick,
     leftClick,
+    length,
 }) => {
+    console.log({changeSlide})
     const { title, description, rating, price, image } = products
         ? products[count]
         : {};
     const [heart, setHeart] = useState(false);
+    const dotElRef = useRef([]);
+    useEffect(() => {
+        dotElRef.current.map((i, j) => {
+            if (j == count)
+                dotElRef.current[j].style.backgroundColor = "#1b998b";
+            else dotElRef.current[j].style.backgroundColor = "#bbb";
+        });
+    }, [count]);
+
     return (
         <SkeletonTheme baseColor="#ededed" highlightColor="white">
             <div
@@ -29,7 +41,7 @@ const CarrousellItems = ({
                 <div
                     className={classNames({
                         [classes.gallaryImage]: true,
-                        "mx-auto row col-12 pt-2  ": true,
+                        "mx-auto row col-12 pt-2 mx-0 px-0": true,
                     })}
                 >
                     <div
@@ -50,47 +62,60 @@ const CarrousellItems = ({
                             </span>
                         )}
                     </div>
-                    <div className="col-12 row">
-                        <div className="col-2  d-flex justify-content-center align-items-center">
+                    <div className="col-12 row mx-0 px-0">
+                        <div className="col-2  d-flex justify-content-center align-items-center mx-0 px-0">
                             <div
                                 onClick={prevCard}
                                 className={classNames({
                                     [classes.scrollIcon]: true,
                                     [classes.disable]: !leftClick,
-                                    " col-6 text": true,
+                                    " col-12 text": true,
                                 })}
                             >
                                 <BsArrowLeft />
                             </div>
                         </div>
-
                         <div
                             className={classNames({
-                                [classes.imageContainer]: true,
-                                "col-8": true,
-                                [classes.imageAnimate]: true,
+                                [classes.slideShow]: true,
+                                "col-8 mx-0 px-0": true,
                             })}
-                        >
-                            <div className={classes.Image}>
-                                {image ? (
-                                    <Image
-                                        src={image}
-                                        alt="image"
-                                        objectFit="contain"
-                                        layout="fill"
-                                    />
-                                ) : (
-                                    <Skeleton className={classes.skeleton} />
-                                )}
+                            >
+                                <div className={classNames({
+                                    [classes.Image]:true,
+                                    [classes.fixedSlide]:!changeSlide,
+                                    [classes.changeSlide]:changeSlide,
+                                })}>
+                                    {image ? (
+                                        <Image
+                                            src={image}
+                                            alt="image"
+                                            objectFit="contain"
+                                            layout="fill"
+                                        />
+                                    ) : (
+                                        <Skeleton
+                                            className={classes.skeleton}
+                                        />
+                                    )}
+                                </div>
+                            <div className="text-center">
+                                {[...Array(length)].map((i, j) => (
+                                    <span
+                                        className={classes.dot}
+                                        ref={(e) => (dotElRef.current[j] = e)}
+                                        key={j}
+                                    ></span>
+                                ))}
                             </div>
                         </div>
-                        <div className="col-2  d-flex justify-content-center align-items-center">
+                        <div className="col-2  d-flex justify-content-center align-items-center mx-0 px-0">
                             <div
                                 onClick={nextCard}
                                 className={classNames({
                                     [classes.scrollIcon]: true,
                                     [classes.disable]: !rigthClick,
-                                    " col-6 text": true,
+                                    " col-12 text": true,
                                 })}
                             >
                                 <BsArrowRight />
@@ -128,7 +153,7 @@ const CarrousellItems = ({
                             )}
                         </p>
                         <p className="d-flex d-lg-none">
-                            {description?.substring(0, 100) || (
+                            {description?.substring(0, 80) || (
                                 <Skeleton count={2} width={300} />
                             )}
                         </p>

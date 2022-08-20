@@ -16,7 +16,7 @@ const Card = ({
     id,
 }) => {
     const router = useRouter();
-    console.log('type of heart', typeof heart)
+    console.log("type of heart", typeof heart);
     return (
         <SkeletonTheme baseColor="#ededed" highlightColor="white">
             <div
@@ -32,7 +32,11 @@ const Card = ({
                     })}
                 >
                     <div
-                        onClick={() =>{if(typeof heart==='boolean'){onHeart(id) } } }
+                        onClick={() => {
+                            if (typeof heart === "boolean") {
+                                onHeart(id);
+                            }
+                        }}
                         className={classNames({
                             [classes.HeartFill]: heart,
                             [classes.Heart]: !heart,
@@ -49,9 +53,10 @@ const Card = ({
                             </span>
                         )}
                     </div>
-                    <div className={classes.imageContainer} 
-                     onClick={() => router.push(`/product/${id}`)}
-                >
+                    <div
+                        className={classes.imageContainer}
+                        onClick={() => router.push(`/product/${id}`)}
+                    >
                         <div className={classes.Image}>
                             {image ? (
                                 <Image
@@ -96,16 +101,16 @@ const Card = ({
                             "col-12 mt-4": true,
                         })}
                     >
-                        <p className='d-none d-lg-flex'>
-                        {description?.substring(0, 48).toLowerCase() || (
-                            <Skeleton count={2} width={140} />
+                        <p className="d-none d-lg-flex">
+                            {description?.substring(0, 48).toLowerCase() || (
+                                <Skeleton count={2} width={140} />
                             )}
-                            </p>
-                        <p className='d-flex d-lg-none'>
-                        {description?.substring(0, 100).toLowerCase() || (
-                            <Skeleton count={2} width={140} />
+                        </p>
+                        <p className="d-flex d-lg-none">
+                            {description?.substring(0, 60).toLowerCase() || (
+                                <Skeleton count={2} width={140} />
                             )}
-                            </p>
+                        </p>
                     </div>
                     <div
                         className={classNames({

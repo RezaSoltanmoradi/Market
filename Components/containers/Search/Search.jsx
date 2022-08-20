@@ -13,28 +13,28 @@ const Search = () => {
     const [loading, setLoading] = useState(false);
     const [filterProducts, setFilterProducts] = useState(null);
     const router = useRouter();
-    
+
     const changeInputhander = (event) => {
         setValue(event.target.value);
         setLoading(true);
-        const enteredValue=inputRef?.current.value;
+        const enteredValue = inputRef?.current.value;
 
-        if(enteredValue.trim().length ===0){
+        if (enteredValue.trim().length === 0) {
             setLoading(false);
             setFilterProducts(null);
         }
-        if (enteredValue.trim().length >0) {
+        if (enteredValue.trim().length > 0) {
             setTimeout(() => {
-            const fetchData = async () => {
+                const fetchData = async () => {
                     const products = await getAllProducts();
                     const foundProducts = products?.filter((item) => {
                         const filterTitle = item.title
-                        .toLowerCase()
-                            .includes(enteredValue.toLowerCase());
-                            const filterDescription = item.description
                             .toLowerCase()
                             .includes(enteredValue.toLowerCase());
-                            return filterDescription + filterTitle;
+                        const filterDescription = item.description
+                            .toLowerCase()
+                            .includes(enteredValue.toLowerCase());
+                        return filterDescription + filterTitle;
                     });
                     setFilterProducts(foundProducts);
                 };
@@ -43,13 +43,13 @@ const Search = () => {
                         setLoading(false);
                     })
                     .catch((error) => console.log({ error }));
-            }, 500)
-        };
+            }, 500);
+        }
     };
 
     const fromSubmitionHandler = (event) => {
         event.preventDefault();
-        if(value.trim().length>0){
+        if (value.trim().length > 0) {
             setShowModal(false);
             setLoading(false);
             router.push("/search");
@@ -74,9 +74,9 @@ const Search = () => {
                 })}
             >
                 <div
-                  onClick={() => {
-                    inputRef.current.focus();
-                }}
+                    onClick={() => {
+                        inputRef.current.focus();
+                    }}
                     className={classNames({
                         " mx-0 px-0 mx-auto": true,
                         [classes.Form]: true,
@@ -90,20 +90,9 @@ const Search = () => {
                         onClick={() => setShowModal(true)}
                     >
                         <div className="col-2 text-center">
-                            {loading ? (
-                                <div
-                                    className="spinner-border spinner-border-sm"
-                                    role="status"
-                                >
-                                    <span className="visually-hidden">
-                                        Loading...
-                                    </span>
-                                </div>
-                            ) : (
-                                <span>
-                                    <BsSearch />
-                                </span>
-                            )}
+                            <span>
+                                <BsSearch />
+                            </span>
                         </div>
                         <div className="col-8">
                             <input
@@ -113,7 +102,7 @@ const Search = () => {
                                 ref={inputRef}
                             />
                         </div>
-                        {value && (
+                        {value && !loading && (
                             <div
                                 className={classNames({
                                     [classes.RemoveText]: true,
@@ -125,8 +114,18 @@ const Search = () => {
                                 </span>
                             </div>
                         )}
+                        {loading && (
+                            <div
+                                className="spinner-border spinner-border-sm text-dark d-flex align-items-center mt-2 pt-2"
+                                role="status"
+                            >
+                                <span className="visually-hidden">
+                                    Loading...
+                                </span>
+                            </div>
+                        )}
                     </form>
-                   <div className={classes.searchBorder}></div>
+                    <div className={classes.searchBorder}></div>
                     <nav
                         className={classNames({
                             [classes.NavList]: true,

@@ -12,12 +12,15 @@
         border-radius: 0;
     }
 }
-@keyframes animate {
+
+@keyframes leftAnimation {
     from {
-        right: -600px;
+        opacity: 0;
+        display:flex;
     }
     to {
-        right: 0px;
+        opacity: 1;
+        display:flex;
     }
 }
 .gallaryImage {
@@ -25,20 +28,35 @@
     top: 0;
     border-radius: $radius-med;
     z-index: 50;
-
-    & .imageContainer {
-        transition: all 0.2s linear;
+    & .slideShow {
         position: relative;
-        animation: animate 0.4s ease-in-out;
-    }
-    & .Image {
-        text-align: center;
-        margin: 0 auto;
-        position: relative;
-        border-radius: 30px;
-        width: 250px;
-        height: 250px;
-        margin-bottom: 1rem !important;
+        overflow: hidden;
+        & .Image {
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 30px;
+            width: 250px;
+            height: 250px;
+            margin-bottom: 1rem !important;
+            opacity: 1;
+            display:flex;
+        }
+        & .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 4px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.8s ease;
+        }
+        & .active {
+            background-color: #717171;
+        }
+        & .changeSlide {
+            animation: leftAnimation 0.8s ease-in-out;
+        }
     }
     & .skeleton {
         width: 250px;
@@ -110,17 +128,20 @@
 }
 @media screen and (max-width: 576px) {
     .gallaryImage {
-        & .Image {
-            text-align: center;
-            margin: 0 auto;
-            position: relative;
-            border-radius: 30px;
-            width: 150px;
-            height: 150px;
-        }
-        & .skeleton {
-            width: 150px;
-            height: 150px;
+        & .slideShow {
+            & .Image {
+                text-align: center;
+                margin: 0 auto;
+                position: relative;
+                border-radius: 30px;
+                width: 150px;
+                height: 150px;
+            }
+
+            & .skeleton {
+                width: 150px;
+                height: 150px;
+            }
         }
     }
 }

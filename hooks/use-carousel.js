@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-const useCarousale = ({ number }) => {
+const useCarousale = ({ length }) => {
     const [count, setCount] = useState(0);
     const [rightClickable, setRightClickable] = useState(true);
     const [leftClickable, setLeftClickable] = useState(true);
-    
-    const rightMoving = () => {
+    const [changeSlide, setChangeSlide] = useState(false);
+    const rightMovingHandler = () => {
         if (count === 3) {
             setRightClickable(false);
             return;
@@ -16,7 +16,7 @@ const useCarousale = ({ number }) => {
             setLeftClickable(true);
         }
     };
-    const leftMoving = () => {
+    const leftMovingHandler = () => {
         if (count === 0) {
             setLeftClickable(false);
             return;
@@ -27,6 +27,7 @@ const useCarousale = ({ number }) => {
         }
     };
     useEffect(() => {
+        setChangeSlide(true);
         switch (count) {
             case 3:
                 setRightClickable(false);
@@ -39,8 +40,14 @@ const useCarousale = ({ number }) => {
                 setLeftClickable(false);
                 break;
         }
-        const next = (count + 1) % number;
-        const timer = setTimeout(() => setCount(next), 3000);
+
+        const next = (count + 1) % length;
+        setTimeout(() => {
+            setChangeSlide(false);
+        }, 800);
+        const timer = setTimeout(() => {
+            setCount(next);
+        }, 5000);
         return () => clearTimeout(timer);
     }, [count]);
 
@@ -48,8 +55,9 @@ const useCarousale = ({ number }) => {
         count,
         rightClickable,
         leftClickable,
-        rightMoving,
-        leftMoving,
+        rightMovingHandler,
+        leftMovingHandler,
+        changeSlide,
     };
 };
 export default useCarousale;
