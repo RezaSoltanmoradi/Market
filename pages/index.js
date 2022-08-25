@@ -4,7 +4,6 @@ import { getAllProducts } from "../all-requests";
 import Carousell from "../Components/Carousell/Carousell";
 
 export default function Home() {
-
     const [loadedProducts, setLoadedProducts] = useState(null);
 
     useEffect(() => {
@@ -16,7 +15,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div >
+        <div>
             <Head>
                 <title>Market</title>
                 <meta
@@ -25,8 +24,8 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className=" col-12 row">
-                <div className="col-12 mt-5">
+            <div className=" col-12 row mx-0 px-0">
+                <div className="col-12 mt-5 mx-0 px-0">
                     <Carousell products={loadedProducts} />
                 </div>
             </div>
